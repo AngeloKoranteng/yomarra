@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ContactForm from "../components/ContactForm";
+import ServicesList from "../components/ServicesList";
 import { FaBullhorn, FaLayerGroup, FaInstagram, FaLinkedin, FaTiktok, FaSnapchatGhost, FaEnvelope, FaMapMarkerAlt, FaBuilding } from 'react-icons/fa';
 // Global styles are imported in layout.js
 
