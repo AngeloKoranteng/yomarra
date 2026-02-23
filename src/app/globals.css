@@ -425,16 +425,16 @@ a {
 
 /* Content Cards */
 .content-card, .service-card, .contact-box {
-  background-color: var(--white);
-  padding: 3rem;
-  border-radius: 20px; /* Softer corners */
+  background: none;
+  padding: 0;
+  border-radius: 0;
   box-shadow: none;
-  border: 1px solid #F0F0F0; /* Clean border instead of shadow */
+  border: none;
   transition: border-color 0.3s ease;
 }
 
 .content-card:hover, .service-card:hover {
-  border-color: var(--primary-color);
+  border-color: transparent;
 }
 
 .intro-text {
