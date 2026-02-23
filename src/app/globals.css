@@ -303,6 +303,71 @@ a {
   box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
 }
 
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 3rem; /* Reduce large spacing on mobile */
+    --spacing-md: 2rem;
+  }
+  
+  .hero {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem; /* Smaller hero title */
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+      font-size: 1rem;
+  }
+
+  /* Compact Collage on Mobile */
+  .hero-visuals {
+      height: 300px; /* Reduce height */
+      margin-top: 2rem;
+  }
+
+  /* Adjust collage cards for smaller screens */
+  .card-large {
+    width: 60%;
+    height: 70%;
+    left: 20%;
+  }
+
+  /* Reduce padding on cards to be less "full" */
+  .content-card, .service-card, .contact-box {
+    padding: 1.5rem !important; 
+  }
+
+  .pricing-card {
+      padding: 1.5rem;
+  }
+
+  .service-card h3 {
+      font-size: 1.5rem !important; 
+  }
+
+  .section-header h2 {
+      font-size: 1.8rem;
+  }
+
+  /* Fix page headers on mobile */
+  .page-header {
+      padding: 80px 0 40px !important; /* Less height on mobile */
+      min-height: auto;
+  }
+
+  .page-header h1 {
+      font-size: 2rem;
+  }
+
+  .page-header p {
+      font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 968px) {
   .hero-grid {
       grid-template-columns: 1fr;
@@ -1074,3 +1139,4 @@ a {
     opacity: 0.3;
   }
 }
+.content-card { padding: 3rem; } .card-title { font-size: 1.1rem; } .card-text { font-size: 0.9rem; } @media (max-width: 768px) { .content-card { padding: 1.5rem !important; } .card-title { font-size: 1rem; } .card-text { font-size: 0.85rem; } }

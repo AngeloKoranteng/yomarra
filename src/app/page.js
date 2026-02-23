@@ -67,9 +67,9 @@ export default function Home() {
             <div className="container">
                 <div className="triangle-grid">
                     {/* Block 1: Wat Yomarra Doet */}
-                    <div className="content-card" style={{padding: '2rem', fontFamily: 'var(--font-montserrat), sans-serif'}}>
-                        <h3 style={{fontSize: '1.1rem', marginBottom: '1rem', textTransform: 'uppercase', color: '#8B4513', fontWeight: 'bold'}}>Wat Yomarra Doet</h3>
-                        <div style={{fontSize: '0.9rem', lineHeight: '1.7', color: '#555'}}>
+                    <div className="content-card" style={{fontFamily: 'var(--font-montserrat), sans-serif'}}>
+                        <h3 className="card-title" style={{marginBottom: '1rem', textTransform: 'uppercase', color: '#8B4513', fontWeight: 'bold'}}>Wat Yomarra Doet</h3>
+                        <div className="card-text" style={{lineHeight: '1.7', color: '#555'}}>
                             <p>Bij Yomarra zorgen we ervoor dat bedrijven niet langer worstelen met hun social media. Wij nemen het volledige proces uit handen: van strategie tot creatie en publicatie.</p>
                             <p style={{marginTop: '0.8rem'}}>Met pakkende, doordachte content en een duidelijke socialmedia-strategie helpen we jouw merk groeien en zichtbaar worden bij de juiste doelgroep. We vertalen jouw verhaal naar een consistente en herkenbare uitstraling die niet alleen opvalt, maar ook écht past bij de identiteit en waarden van jouw merk.</p> 
                             <p style={{marginTop: '0.8rem'}}>Zo wordt social media geen last meer, maar een krachtig middel om verbinding, vertrouwen en groei te realiseren.</p>
@@ -77,18 +77,18 @@ export default function Home() {
                     </div>
 
                     {/* Block 2: Mijn Visie */}
-                    <div className="content-card" style={{padding: '2rem', fontFamily: 'var(--font-montserrat), sans-serif'}}>
-                        <h3 style={{fontSize: '1.1rem', marginBottom: '1rem', textTransform: 'uppercase', color: '#8B4513', fontWeight: 'bold'}}>Mijn Visie</h3>
-                        <div style={{fontSize: '0.9rem', lineHeight: '1.7', color: '#555'}}>
+                    <div className="content-card" style={{fontFamily: 'var(--font-montserrat), sans-serif'}}>
+                        <h3 className="card-title" style={{marginBottom: '1rem', textTransform: 'uppercase', color: '#8B4513', fontWeight: 'bold'}}>Mijn Visie</h3>
+                        <div className="card-text" style={{lineHeight: '1.7', color: '#555'}}>
                             <p>Mijn visie is een wereld waarin elk bedrijf zijn unieke verhaal niet alleen vertelt, maar ook laat voelen op social media. Een wereld waarin merken dominant zichtbaar zijn voor de juiste doelgroep, impact maken en uitgroeien tot sterke online autoriteiten.</p>
                             <p style={{marginTop: '0.8rem'}}>Met gedurfde, creatieve en strategisch slimme content wordt social media een motor voor groei, herkenning en blijvende invloed. Geen bijzaak, maar een essentieel onderdeel van succes.</p>
                         </div>
                     </div>
 
                     {/* Block 3: Wat Klanten Krijgen */}
-                    <div className="content-card" style={{padding: '2rem', fontFamily: 'var(--font-montserrat), sans-serif'}}>
-                        <h3 style={{fontSize: '1.1rem', marginBottom: '1rem', textTransform: 'uppercase', color: '#8B4513', fontWeight: 'bold'}}>Wat Klanten Van Mij Krijgen</h3>
-                        <div style={{fontSize: '0.9rem', lineHeight: '1.7', color: '#555'}}>
+                    <div className="content-card" style={{fontFamily: 'var(--font-montserrat), sans-serif'}}>
+                        <h3 className="card-title" style={{marginBottom: '1rem', textTransform: 'uppercase', color: '#8B4513', fontWeight: 'bold'}}>Wat Klanten Van Mij Krijgen</h3>
+                        <div className="card-text" style={{lineHeight: '1.7', color: '#555'}}>
                             <p>Als klant van Yomarra krijg je een social media strategie op maat, creatieve content die opvalt, en een consistente online aanwezigheid die je bedrijf laat groeien.</p>
                         </div>
                     </div>
@@ -104,7 +104,7 @@ export default function Home() {
                     <p>Transparante prijzen, maximale impact. Alle prijzen zijn exclusief btw.</p>
                 </div>
                 {/* Custom Grid for 3 Cards */}
-                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem'}}>
+                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem'}}>
                     
                     {/* Card 1: Start */}
                     <div className="service-card" style={{display: 'flex', flexDirection: 'column', height: '100%', position: 'relative'}}>

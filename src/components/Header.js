@@ -60,8 +60,8 @@ export default function Header() {
                           <a href="#" onClick={toggleDropdown}>Diensten ▾</a>
                           <ul className={`dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
                               <li><Link href="/projects" onClick={closeMenu}>Projecten</Link></li>
-                              <li><Link href="/project-details" onClick={closeMenu}>Details</Link></li>
-                              <li><Link href="/pricing" onClick={closeMenu}>Pricing</Link></li>
+                              {/* <li><Link href="/project-details" onClick={closeMenu}>Details</Link></li> Optional: Remove if not needed */}
+                              <li><Link href="/#pricing" onClick={closeMenu}>Prijzen</Link></li>
                           </ul>
                       </li>
                       <li><Link href="/#contact" onClick={closeMenu}>Contact</Link></li>
