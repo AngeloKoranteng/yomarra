@@ -73,13 +73,8 @@ export default function Header() {
               <nav className={`nav ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
                   <ul>
                       <li><Link href="/#home" onClick={closeMenu}>Home</Link></li>
-                      <li className="dropdown">
-                          <a href="#" onClick={toggleDropdown}>Diensten ▾</a>
-                          <ul className={`dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
-                              <li><Link href="/projects" onClick={() => { closeMenu(); closeDropdown(); }}>Projecten</Link></li>
-                              <li><Link href="/#pricing" onClick={() => { closeMenu(); closeDropdown(); }}>Prijzen</Link></li>
-                          </ul>
-                      </li>
+                      <li><Link href="/projects" onClick={closeMenu}>Projecten</Link></li>
+                      <li><Link href="/#pricing" onClick={closeMenu}>Prijzen</Link></li>
                       <li><Link href="/#contact" onClick={closeMenu}>Contact</Link></li>
                       <li><Link href="/#contact" className="nav-btn" onClick={closeMenu}>Start Nu</Link></li>
                   </ul>
