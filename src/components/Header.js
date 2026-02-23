@@ -1,10 +1,24 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    // Sluit menu bij elke route change
+    const handleRouteChange = () => {
+      setIsMobileMenuOpen(false);
+      setIsDropdownOpen(false);
+    };
+    router.events?.on('routeChangeStart', handleRouteChange);
+    return () => {
+      router.events?.off('routeChangeStart', handleRouteChange);
+    };
+  }, [router]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
