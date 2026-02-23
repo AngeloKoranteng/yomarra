@@ -4,7 +4,13 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export default function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('yomarra_mobileMenuOpen');
+      return saved === 'true';
+    }
+    return false;
+  });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const router = useRouter();
 
@@ -13,6 +19,7 @@ export default function Header() {
     const handleRouteChange = () => {
       setIsMobileMenuOpen(false);
       setIsDropdownOpen(false);
+      localStorage.setItem('yomarra_mobileMenuOpen', 'false');
     };
     router.events?.on('routeChangeStart', handleRouteChange);
     return () => {
@@ -20,8 +27,21 @@ export default function Header() {
     };
   }, [router]);
 
+  // Persist menu state in localStorage
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('yomarra_mobileMenuOpen', isMobileMenuOpen ? 'true' : 'false');
+    }
+  }, [isMobileMenuOpen]);
+
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((open) => {
+      const next = !open;
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('yomarra_mobileMenuOpen', next ? 'true' : 'false');
+      }
+      return next;
+    });
   };
 
   const toggleDropdown = (e) => {
@@ -30,8 +50,11 @@ export default function Header() {
   };
 
   const closeMenu = () => {
-      setIsMobileMenuOpen(false);
-      setIsDropdownOpen(false);
+    setIsMobileMenuOpen(false);
+    setIsDropdownOpen(false);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('yomarra_mobileMenuOpen', 'false');
+    }
   };
 
   const closeDropdown = () => {
