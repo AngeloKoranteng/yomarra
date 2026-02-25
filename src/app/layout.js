@@ -1,6 +1,7 @@
 import { Montserrat, Open_Sans, Luckiest_Guy, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const luckiestGuy = Luckiest_Guy({
   weight: "400",
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
       <body className={`${montserrat.variable} ${openSans.variable} ${luckiestGuy.variable} ${dancingScript.variable}`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
