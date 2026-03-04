@@ -57,57 +57,53 @@ function ContactFormContent() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="contact-form">
+        <form onSubmit={handleSubmit} className="contact-form" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {/* Honeypot */}
             <input type="text" name="_honey" style={{display: 'none'}} />
             
             <input type="hidden" name="_captcha" value="false" />
-            {/* Dynamic subject line to include selected plan */}
-            <input type="hidden" name="_subject" value={`Nieuwe aanvraag via Yomarra website${selectedPlan ? ` - Pakket: ${selectedPlan}` : ''}`} />
+            <input type="hidden" name="_subject" value={`Nieuwe aanvraag via website${selectedPlan ? ` - Pakket: ${selectedPlan}` : ''}`} />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_autoresponse" value="Bedankt voor je bericht! We hebben het ontvangen en nemen zo snel mogelijk contact op." />
 
-            <div className="form-group">
-                <label htmlFor="name">Naam</label>
-                <input type="text" id="name" name="name" required placeholder="Jouw naam" />
-            </div>
-            
-            <div className="form-group">
-                <label htmlFor="email">Email Adres</label>
-                <input type="email" id="email" name="email" required placeholder="jouw@email.nl" />
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <label htmlFor="name" style={{ fontSize: '0.85rem', fontWeight: 'bold', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px', color: '#111' }}>Naam</label>
+                    <input type="text" id="name" name="name" required placeholder="Jouw naam" style={{ width: '100%', padding: '1rem', backgroundColor: '#F5F5F5', border: 'none', borderRadius: '8px', fontSize: '1rem' }} />
+                </div>
+                
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <label htmlFor="email" style={{ fontSize: '0.85rem', fontWeight: 'bold', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px', color: '#111' }}>Email Adres</label>
+                    <input type="email" id="email" name="email" required placeholder="jouw@email.nl" style={{ width: '100%', padding: '1rem', backgroundColor: '#F5F5F5', border: 'none', borderRadius: '8px', fontSize: '1rem' }} />
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <label htmlFor="service" style={{ fontSize: '0.85rem', fontWeight: 'bold', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px', color: '#111' }}>Waar heb je hulp bij nodig?</label>
+                    <select id="service" name="service" defaultValue="Algemeen" style={{ width: '100%', padding: '1rem', backgroundColor: '#F5F5F5', border: 'none', borderRadius: '8px', fontSize: '1rem' }}>
+                        <option value="Algemeen">Algemeen advies</option>
+                        <option value="Strategie">Social Media Strategie</option>
+                        <option value="Content">Content Creatie</option>
+                        <option value="Beheer">Social Media Beheer</option>
+                    </select>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <label htmlFor="plan" style={{ fontSize: '0.85rem', fontWeight: 'bold', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px', color: '#111' }}>Kies een Pakket (Optioneel)</label>
+                    <select id="plan" name="plan" value={selectedPlan} onChange={(e) => setSelectedPlan(e.target.value)} style={{ width: '100%', padding: '1rem', backgroundColor: '#F5F5F5', border: 'none', borderRadius: '8px', fontSize: '1rem' }}>
+                        <option value="">-- Geen pakket geselecteerd --</option>
+                        <option value="start">Start Pakket (€250)</option>
+                        <option value="groei">Groei Pakket (€499/mnd)</option>
+                        <option value="all-in">All-in Pakket (€1000/mnd)</option>
+                    </select>
+                </div>
             </div>
 
-            <div className="form-group">
-                <label htmlFor="service">Waar heb je hulp bij nodig?</label>
-                <select id="service" name="service" defaultValue="Algemeen">
-                    <option value="Algemeen">Algemeen advies</option>
-                    <option value="Strategie">Social Media Strategie</option>
-                    <option value="Content">Content Creatie</option>
-                    <option value="Beheer">Social Media Beheer</option>
-                </select>
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="plan">Kies een Pakket (Optioneel)</label>
-                <select 
-                    id="plan" 
-                    name="plan" 
-                    value={selectedPlan} 
-                    onChange={(e) => setSelectedPlan(e.target.value)}
-                >
-                    <option value="">-- Geen pakket geselecteerd --</option>
-                    <option value="start">Start Pakket (€250)</option>
-                    <option value="groei">Groei Pakket (€499/mnd)</option>
-                    <option value="all-in">All-in Pakket (€1000/mnd)</option>
-                </select>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <label htmlFor="message" style={{ fontSize: '0.85rem', fontWeight: 'bold', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px', color: '#111' }}>Jouw Bericht</label>
+                <textarea id="message" name="message" required placeholder="Vertel kort wat je wensen zijn..." rows="5" style={{ width: '100%', padding: '1rem', backgroundColor: '#F5F5F5', border: 'none', borderRadius: '8px', fontSize: '1rem', resize: 'vertical' }}></textarea>
             </div>
             
-            <div className="form-group">
-                <label htmlFor="message">Jouw Bericht</label>
-                <textarea id="message" name="message" rows="5" required placeholder="Vertel kort wat je wensen zijn..."></textarea>
-            </div>
-            
-            <button type="submit" className="btn btn-block" disabled={formStatus === 'submitting'}>
+            <button type="submit" disabled={formStatus === 'submitting'} style={{ width: '100%', padding: '1.2rem', backgroundColor: '#111', color: '#fff', border: 'none', borderRadius: '8px', fontSize: '1rem', fontWeight: 'bold', cursor: 'pointer', marginTop: '0.5rem' }}>
                 {formStatus === 'submitting' ? 'Bezig met verzenden...' : 'Verstuur Aanvraag'}
             </button>
             
