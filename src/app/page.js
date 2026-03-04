@@ -23,19 +23,28 @@ export default function Home() {
             transform: translateY(-15px);
             border-color: #8B4513;
           }
+          .price-card-popular {
+            transform: scale(1);
+            z-index: 10;
+          }
+          @media (min-width: 992px) {
+            .price-card-popular {
+              transform: scale(1.05);
+            }
+          }
         `}} />
 
         {/* Hero Section */}
         <section id="home" style={{
             backgroundColor: '#F2E6D8', /* Bruine huisstijl lichte kleur */
-            paddingTop: '6rem',
-            paddingBottom: '8rem',
+            paddingTop: 'clamp(4rem, 10vw, 6rem)',
+            paddingBottom: 'clamp(5rem, 12vw, 8rem)',
             position: 'relative'
         }}>
-            <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+            <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', alignItems: 'center' }}>
                 {/* Left Text */}
                 <div style={{zIndex: 2}}>
-                    <h1 style={{color: '#111', fontSize: '3.8rem', marginBottom: '1.5rem', lineHeight: '1.1', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold'}}>
+                    <h1 style={{color: '#111', fontSize: 'clamp(2.5rem, 8vw, 3.8rem)', marginBottom: '1.5rem', lineHeight: '1.1', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold'}}>
                         Social media hoeft niet ingewikkeld te zijn.
                     </h1>
                     <p style={{color: '#444', fontSize: '1.15rem', marginBottom: '2.5rem', maxWidth: '450px'}}>
@@ -81,7 +90,7 @@ export default function Home() {
                         borderRadius: '40px',
                         overflow: 'hidden',
                         position: 'relative',
-                        height: '500px',
+                        height: 'clamp(300px, 50vh, 500px)',
                         width: '100%',
                         backgroundColor: '#fff',
                         boxShadow: '10px 10px 0px #8B4513'
@@ -92,22 +101,23 @@ export default function Home() {
                     {/* Floating Stat Box */}
                     <div style={{
                         position: 'absolute',
-                        bottom: '-20px',
-                        left: '-20px',
+                        bottom: 'clamp(-30px, -5%, -10px)',
+                        left: 'clamp(-10px, -5%, 10px)',
                         backgroundColor: '#fff',
-                        padding: '1.5rem',
+                        padding: 'clamp(1rem, 3vw, 1.5rem)',
                         borderRadius: '20px',
                         boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '1rem',
-                        border: '1px solid #111'
+                        gap: 'clamp(0.5rem, 2vw, 1rem)',
+                        border: '1px solid #111',
+                        maxWidth: '95%'
                     }}>
-                        <div style={{width: '60px', height: '60px', backgroundColor: '#e8bbff', borderRadius: '15px', color: '#8b27cc', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem'}}>
+                        <div style={{width: 'clamp(40px, 10vw, 60px)', height: 'clamp(40px, 10vw, 60px)', backgroundColor: '#e8bbff', borderRadius: '15px', color: '#8b27cc', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 'clamp(1.5rem, 4vw, 2rem)'}}>
                             <FaChartLine />
                         </div>
                         <div>
-                            <h4 style={{fontSize: '1.8rem', fontWeight: 'bold', color: '#111', marginBottom: '0.2rem'}}>Dominant</h4>
+                            <h4 style={{fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', fontWeight: 'bold', color: '#111', marginBottom: '0.2rem'}}>Dominant</h4>
                             <p style={{color: '#666', fontSize: '0.9rem', margin: 0}}>In jouw markt</p>
                         </div>
                     </div>
@@ -217,7 +227,7 @@ export default function Home() {
                     <h2 style={{fontFamily: 'var(--font-montserrat)', color: '#111', fontSize: '3rem', fontWeight: 'bold'}}>Wat we doen</h2>
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem'}}>
+                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem'}}>
                     
                     {/* Card 1 */}
                     <div className="floating-card" style={{borderRadius: '24px', overflow: 'hidden', backgroundColor: '#fff', border: '1px solid #fff', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column', height: '100%'}}>
@@ -286,7 +296,7 @@ export default function Home() {
                     <p style={{color: '#555', maxWidth: '600px', margin: '0 auto'}}>Transparante prijzen, maximale impact. Alle prijzen zijn exclusief btw.</p>
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', alignItems: 'center'}}>
+                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', alignItems: 'center'}}>
                     
                     {/* Card 1: Start */}
                     <div className="price-card" style={{backgroundColor: '#fff', borderRadius: '30px', padding: '3rem 2rem', border: '2px solid transparent', boxShadow: '0 10px 30px rgba(0,0,0,0.05)'}}>
@@ -308,7 +318,7 @@ export default function Home() {
                     </div>
 
                     {/* Card 2: Groei (Popular) */}
-                    <div className="price-card" style={{backgroundColor: '#fff', borderRadius: '30px', padding: '4rem 2rem 3rem 2rem', border: '2px solid transparent', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', position: 'relative', transform: 'scale(1.05)', zIndex: 10}}>
+                    <div className="price-card-popular price-card" style={{backgroundColor: '#fff', borderRadius: '30px', padding: '4rem 2rem 3rem 2rem', border: '2px solid transparent', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', position: 'relative'}}>
                         <div style={{position: 'absolute', top: 0, left: '0', right: '0', backgroundColor: '#FCD553', color: '#111', textAlign: 'center', padding: '1rem', fontWeight: 'bold', fontSize: '1rem', borderTopLeftRadius: '28px', borderTopRightRadius: '28px'}}>
                             Meest gekozen
                         </div>
