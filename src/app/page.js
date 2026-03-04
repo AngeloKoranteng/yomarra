@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import ContactForm from "../components/ContactForm";
 import Link from "next/link";
 import { FaArrowRight, FaStar, FaChartLine, FaCheckCircle, FaLaptop, FaBullseye, FaComments, FaBullhorn, FaMobileAlt, FaCamera, FaUserFriends } from 'react-icons/fa';
@@ -31,6 +31,23 @@ export default function Home() {
             .price-card-popular {
               transform: scale(1.05);
             }
+          }
+          .emoticon-link {
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 120px;
+          }
+          .emoticon-link:hover {
+            transform: translateY(-8px);
+          }
+          .emoticon-link:hover .icon-box {
+            background-color: #8B4513 !important;
+            color: #F2E6D8 !important;
+            box-shadow: 0 12px 24px rgba(139, 69, 19, 0.2) !important;
           }
         `}} />
 
@@ -90,12 +107,18 @@ export default function Home() {
                         borderRadius: '40px',
                         overflow: 'hidden',
                         position: 'relative',
-                        height: 'clamp(300px, 50vh, 500px)',
+                        aspectRatio: '1 / 1',
+                        maxWidth: '400px',
                         width: '100%',
-                        backgroundColor: '#fff',
-                        boxShadow: '10px 10px 0px #8B4513'
+                        margin: '0 auto',
+                        backgroundColor: '#F2E6D8',
+                        boxShadow: '10px 10px 0px #8B4513',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
                     }}>
-                        <img src="https://images.unsplash.com/photo-1542744094-24638ea0b3b5?auto=format&fit=crop&w=1000&q=80" alt="Werken op laptop" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                        {/* We use the custom drawing grid uploaded by the user */}
+                        <img src="/Homepagina.jpeg" alt="Yomarra Homefoto" style={{width: '95%', height: '95%', objectFit: 'contain'}} />
                     </div>
                     
                     {/* Floating Stat Box */}
@@ -140,82 +163,57 @@ export default function Home() {
                     justifyContent: 'space-between', 
                     alignItems: 'center', 
                     flexWrap: 'wrap', 
-                    gap: '2rem'
+                    gap: '2rem',
+                    maxWidth: '800px',
+                    margin: '0 auto'
                 }}>
-                    {/* Emoticon 1: Phone / Social */}
-                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, minWidth: '120px'}}>
-                        <div style={{
+                    {/* Emoticon 1: Megaphone / Promo */}
+                    <Link href="/promotie" className="emoticon-link">
+                        <div className="icon-box" style={{
                             width: '100px', height: '100px', 
                             backgroundColor: '#F2E6D8', 
                             borderRadius: '24px', 
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
                             color: '#8B4513', fontSize: '3rem',
-                            boxShadow: '0 8px 16px rgba(139, 69, 19, 0.1)'
-                        }}>
-                            <FaMobileAlt />
-                        </div>
-                        <h4 style={{marginTop: '1rem', color: '#111', fontWeight: 'bold', fontSize: '1.1rem'}}>Socials</h4>
-                    </div>
-
-                    {/* Emoticon 2: Megaphone / Promo */}
-                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, minWidth: '120px'}}>
-                        <div style={{
-                            width: '100px', height: '100px', 
-                            backgroundColor: '#F2E6D8', 
-                            borderRadius: '24px', 
-                            display: 'flex', justifyContent: 'center', alignItems: 'center',
-                            color: '#8B4513', fontSize: '3rem',
-                            boxShadow: '0 8px 16px rgba(139, 69, 19, 0.1)'
+                            boxShadow: '0 8px 16px rgba(139, 69, 19, 0.1)',
+                            transition: 'all 0.3s ease'
                         }}>
                             <FaBullhorn />
                         </div>
                         <h4 style={{marginTop: '1rem', color: '#111', fontWeight: 'bold', fontSize: '1.1rem'}}>Promotie</h4>
-                    </div>
+                    </Link>
 
-                    {/* Emoticon 3: User / Engagement */}
-                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, minWidth: '120px'}}>
-                        <div style={{
+                    {/* Emoticon 2: Target / Strategy */}
+                    <Link href="/strategie" className="emoticon-link">
+                        <div className="icon-box" style={{
                             width: '100px', height: '100px', 
                             backgroundColor: '#F2E6D8', 
                             borderRadius: '24px', 
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
                             color: '#8B4513', fontSize: '3rem',
-                            boxShadow: '0 8px 16px rgba(139, 69, 19, 0.1)'
-                        }}>
-                            <FaUserFriends />
-                        </div>
-                        <h4 style={{marginTop: '1rem', color: '#111', fontWeight: 'bold', fontSize: '1.1rem'}}>Community</h4>
-                    </div>
-
-                    {/* Emoticon 4: Target / Strategy */}
-                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, minWidth: '120px'}}>
-                        <div style={{
-                            width: '100px', height: '100px', 
-                            backgroundColor: '#F2E6D8', 
-                            borderRadius: '24px', 
-                            display: 'flex', justifyContent: 'center', alignItems: 'center',
-                            color: '#8B4513', fontSize: '3rem',
-                            boxShadow: '0 8px 16px rgba(139, 69, 19, 0.1)'
+                            boxShadow: '0 8px 16px rgba(139, 69, 19, 0.1)',
+                            transition: 'all 0.3s ease'
                         }}>
                             <FaBullseye />
                         </div>
                         <h4 style={{marginTop: '1rem', color: '#111', fontWeight: 'bold', fontSize: '1.1rem'}}>Strategie</h4>
-                    </div>
+                    </Link>
 
-                    {/* Emoticon 5: Camera / Content */}
-                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, minWidth: '120px'}}>
-                        <div style={{
+                    {/* Emoticon 3: Camera / Content */}
+                    <Link href="/content" className="emoticon-link">
+                        <div className="icon-box" style={{
                             width: '100px', height: '100px', 
                             backgroundColor: '#F2E6D8', 
                             borderRadius: '24px', 
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
                             color: '#8B4513', fontSize: '3rem',
-                            boxShadow: '0 8px 16px rgba(139, 69, 19, 0.1)'
+                            boxShadow: '0 8px 16px rgba(139, 69, 19, 0.1)',
+                            transition: 'all 0.3s ease'
                         }}>
                             <FaCamera />
                         </div>
                         <h4 style={{marginTop: '1rem', color: '#111', fontWeight: 'bold', fontSize: '1.1rem'}}>Content</h4>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </section>
@@ -304,7 +302,7 @@ export default function Home() {
                         <p style={{color: '#666', fontSize: '0.9rem', marginBottom: '2rem', minHeight: '60px'}}>Voor ondernemers die professioneel zichtbaar willen worden.</p>
                         
                         <div style={{marginBottom: '2rem', display: 'flex', alignItems: 'baseline', gap: '0.5rem'}}>
-                            <span style={{fontSize: '3rem', fontWeight: 'bold', color: '#111'}}>€250</span>
+                            <span style={{fontSize: '3rem', fontWeight: 'bold', color: '#111'}}>â‚¬250</span>
                         </div>
 
                         <ul style={{listStyle: 'none', padding: 0, margin: '0 0 2.5rem 0', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
@@ -323,10 +321,10 @@ export default function Home() {
                             Meest gekozen
                         </div>
                         <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', color: '#111', marginBottom: '0.5rem', marginTop: '1rem'}}>Groei Pakket</h3>
-                        <p style={{color: '#666', fontSize: '0.9rem', marginBottom: '2rem', minHeight: '60px'}}>Voor ondernemers die willen groeien in bereik, DM’s en omzet.</p>
+                        <p style={{color: '#666', fontSize: '0.9rem', marginBottom: '2rem', minHeight: '60px'}}>Voor ondernemers die willen groeien in bereik, DMâ€™s en omzet.</p>
                         
                         <div style={{marginBottom: '2rem', display: 'flex', alignItems: 'baseline', gap: '0.5rem'}}>
-                            <span style={{fontSize: '3.5rem', fontWeight: 'bold', color: '#111'}}>€499</span>
+                            <span style={{fontSize: '3.5rem', fontWeight: 'bold', color: '#111'}}>â‚¬499</span>
                             <span style={{color: '#666'}}>/ mnd</span>
                         </div>
 
@@ -346,7 +344,7 @@ export default function Home() {
                         <p style={{color: '#666', fontSize: '0.9rem', marginBottom: '2rem', minHeight: '60px'}}>Voor ondernemers die social media volledig willen uitbesteden.</p>
                         
                         <div style={{marginBottom: '2rem', display: 'flex', alignItems: 'baseline', gap: '0.5rem'}}>
-                            <span style={{fontSize: '3rem', fontWeight: 'bold', color: '#111'}}>€1000</span>
+                            <span style={{fontSize: '3rem', fontWeight: 'bold', color: '#111'}}>â‚¬1000</span>
                             <span style={{color: '#666'}}>/ mnd</span>
                         </div>
 

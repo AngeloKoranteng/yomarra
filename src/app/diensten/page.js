@@ -1,43 +1,74 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 
 export default function Diensten() {
   return (
-    <main>
-      <section className="page-header">
-        <div className="container">
-          <h1>Diensten</h1>
-          <p>Home / Diensten</p>
+    <main style={{overflowX: 'hidden'}}>
+      <style dangerouslySetInnerHTML={{__html: `
+        .service-container {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-container:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+      `}} />
+
+      {/* Hero / Header Section */}
+      <section style={{
+            backgroundColor: '#F2E6D8', 
+            paddingTop: 'clamp(6rem, 10vw, 8rem)',
+            paddingBottom: 'clamp(4rem, 8vw, 6rem)',
+            textAlign: 'center',
+            position: 'relative'
+        }}>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+            <h1 style={{fontFamily: 'var(--font-montserrat)', color: '#111', fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: 'bold', marginBottom: '1rem'}}>Onze Diensten</h1>
+            <p style={{color: '#666', fontSize: '1.1rem'}}>Home / Diensten</p>
         </div>
-        <div className="hero-wave" style={{ bottom: '-1px' }}>
-             <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{width: '100%', height: '80px', display: 'block'}}>
-                <path fill="#ffffff" d="M0,0 C480,100 960,100 1440,0 L1440,100 L0,100 Z" />
+
+        {/* Bottom Wave to White */}
+        <div style={{position: 'absolute', bottom: '-1px', left: 0, width: '100%', zIndex: 1}}>
+            <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{display: 'block', width: '100%', height: '80px'}}>
+                <path fill="#ffffff" d="M0,50 L1440,0 L1440,100 L0,100 Z"></path>
             </svg>
         </div>
       </section>
 
-      <section className="section services" style={{padding: '4rem 0'}}>
-        <div className="container" style={{maxWidth: '1000px'}}>
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem'}}>
+      {/* Diensten Content */}
+      <section style={{backgroundColor: '#fff', padding: '4rem 0 6rem 0'}}>
+        <div className="container" style={{maxWidth: '1000px', margin: '0 auto'}}>
+          
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', marginTop: '2rem'}}>
             
-            <div style={{padding: '2rem', border: '1px solid #eee', borderRadius: '12px', textAlign: 'center'}}>
-              <h3 style={{color: '#8B4513', fontSize: '1.5rem', marginBottom: '1rem'}}>Social media strategie</h3>
-              <p style={{color: '#555', marginBottom: '1.5rem'}}>Een slimme strategie die jouw merk laat groeien en zichtbaar maakt bij de juiste doelgroep. We analyseren je markt en bepalen de beste aanpak.</p>
-              <Link href="/contact" style={{color: '#8B4513', fontWeight: 'bold', textDecoration: 'underline'}}>Meer info</Link>
+            {/* Dienst 1 */}
+            <div className="service-container" id="promotie" style={{backgroundColor: '#fff', borderRadius: '24px', padding: '3rem 2rem', border: '1px solid #eee', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
+              <h3 style={{fontSize: '1.8rem', color: '#111', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold', marginBottom: '1rem'}}>Promotie</h3>
+              <p style={{color: '#555', lineHeight: '1.7', marginBottom: '1.5rem'}}>
+                Met doelgerichte promotie zorgen we ervoor dat jouw merk opvalt. Van pakkende advertentiecampagnes tot strategische samenwerkingen, we trekken de aandacht van jouw ideale doelgroep en vergroten je bereik.
+              </p>
+              <Link href="/contact" style={{color: '#8B4513', fontWeight: 'bold', textDecoration: 'none'}}>Meer informatie &rarr;</Link>
             </div>
 
-            <div style={{padding: '2rem', border: '1px solid #eee', borderRadius: '12px', textAlign: 'center'}}>
-              <h3 style={{color: '#8B4513', fontSize: '1.5rem', marginBottom: '1rem'}}>Content creatie</h3>
-              <p style={{color: '#555', marginBottom: '1.5rem'}}>Creatieve posts, video’s en visuals die opvallen en jouw verhaal vertellen. Wij zorgen voor hoogwaardige content die converteert.</p>
-              <Link href="/contact" style={{color: '#8B4513', fontWeight: 'bold', textDecoration: 'underline'}}>Meer info</Link>
+            {/* Dienst 2 */}
+            <div className="service-container" id="strategie" style={{backgroundColor: '#fff', borderRadius: '24px', padding: '3rem 2rem', border: '1px solid #eee', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
+              <h3 style={{fontSize: '1.8rem', color: '#111', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold', marginBottom: '1rem'}}>Strategie</h3>
+              <p style={{color: '#555', lineHeight: '1.7', marginBottom: '1.5rem'}}>
+                Zonder plan geen succes. Wij ontwikkelen een datagedreven social media strategie die naadloos aansluit bij jouw bedrijfsdoelen. We bepalen de juiste platformen, de tone-of-voice en de contentpilaren voor maximale impact.
+              </p>
+              <Link href="/contact" style={{color: '#8B4513', fontWeight: 'bold', textDecoration: 'none'}}>Meer informatie &rarr;</Link>
             </div>
 
-            <div style={{padding: '2rem', border: '1px solid #eee', borderRadius: '12px', textAlign: 'center'}}>
-              <h3 style={{color: '#8B4513', fontSize: '1.5rem', marginBottom: '1rem'}}>Branding</h3>
-              <p style={{color: '#555', marginBottom: '1.5rem'}}>Een sterke, herkenbare uitstraling die past bij jouw bedrijf. Van logo tot complete visuele identiteit op al je kanalen.</p>
-              <Link href="/contact" style={{color: '#8B4513', fontWeight: 'bold', textDecoration: 'underline'}}>Meer info</Link>
+            {/* Dienst 3 */}
+            <div className="service-container" id="content" style={{backgroundColor: '#fff', borderRadius: '24px', padding: '3rem 2rem', border: '1px solid #eee', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
+              <h3 style={{fontSize: '1.8rem', color: '#111', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold', marginBottom: '1rem'}}>Content Creatie</h3>
+              <p style={{color: '#555', lineHeight: '1.7', marginBottom: '1.5rem'}}>
+                Van opvallende visuals tot boeiende video's en overtuigende teksten. Wij creëren content die niet alleen mooi is, maar ook converteert. Content die het verhaal van jouw merk vertelt en interactie uitlokt.
+              </p>
+              <Link href="/contact" style={{color: '#8B4513', fontWeight: 'bold', textDecoration: 'none'}}>Meer informatie &rarr;</Link>
             </div>
 
           </div>
+
         </div>
       </section>
     </main>
