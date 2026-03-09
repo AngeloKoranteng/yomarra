@@ -129,7 +129,8 @@ export default function Home() {
                                 width: '100%', 
                                 height: 'auto', 
                                 objectFit: 'contain',
-                                imageRendering: 'high-quality'
+                                imageRendering: 'high-quality',
+                                mixBlendMode: 'darken'
                             }} 
                         />
                     </div>
@@ -353,6 +354,7 @@ export default function Home() {
     </main>
   );
 }
+
 
 
 
