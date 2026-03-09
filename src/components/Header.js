@@ -70,7 +70,6 @@ export default function Header() {
                       <li><Link href="/" onClick={closeMenu}>Home</Link></li>
                       <li><Link href="/over-ons" onClick={closeMenu}>Over ons</Link></li>
                       <li><Link href="/diensten" onClick={closeMenu}>Diensten</Link></li>
-                      <li><Link href="/#projects" onClick={closeMenu}>Projecten</Link></li>
                       <li><Link href="/contact" onClick={closeMenu}>Contact</Link></li>
                       <li><Link href="/contact" className="nav-btn" onClick={closeMenu}>Start Nu</Link></li>
                   </ul>

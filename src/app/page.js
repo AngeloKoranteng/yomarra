@@ -1,8 +1,8 @@
-// --- HOMEPAGE CODE ---
+﻿// --- HOMEPAGE CODE ---
 // Dit bestand bouwt de hele beginpagina van de website.
 // We laden hier afbeeldingen, kaders en testjes in om deze te tonen.
 
-﻿import Image from "next/image";
+ï»¿import Image from "next/image";
 import ContactForm from "../components/ContactForm";
 import Link from "next/link";
 import { FaArrowRight, FaStar, FaChartLine, FaCheckCircle, FaLaptop, FaBullseye, FaComments, FaBullhorn, FaMobileAlt, FaCamera, FaUserFriends } from 'react-icons/fa';
@@ -110,46 +110,28 @@ export default function Home() {
                 {/* Right Image */}
                 <div style={{position: 'relative', zIndex: 2}}>
                     <div style={{
-                        border: '6px solid #111',
-                        borderRadius: '40px',
-                        overflow: 'hidden',
                         position: 'relative',
-                        aspectRatio: '1 / 1',
-                        maxWidth: '400px',
                         width: '100%',
+                        maxWidth: '450px',
                         margin: '0 auto',
-                        backgroundColor: '#F2E6D8',
-                        boxShadow: '10px 10px 0px #8B4513',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}>
-                        {/* We use the custom drawing grid uploaded by the user */}
-                        <img src="/Homepagina.jpeg" alt="Yomarra Social Media Agency illustratie van telefoon en likes" style={{width: '95%', height: '95%', objectFit: 'contain'}} />
-                    </div>
-                    
-                    {/* Floating Stat Box */}
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 'clamp(-30px, -5%, -10px)',
-                        left: 'clamp(-10px, -5%, 10px)',
-                        backgroundColor: '#fff',
-                        padding: 'clamp(1rem, 3vw, 1.5rem)',
-                        borderRadius: '20px',
-                        boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 'clamp(0.5rem, 2vw, 1rem)',
-                        border: '1px solid #111',
-                        maxWidth: '95%'
-                    }}>
-                        <div style={{width: 'clamp(40px, 10vw, 60px)', height: 'clamp(40px, 10vw, 60px)', backgroundColor: '#e8bbff', borderRadius: '15px', color: '#8b27cc', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 'clamp(1.5rem, 4vw, 2rem)'}}>
-                            <FaChartLine />
-                        </div>
-                        <div>
-                            <div style={{fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', fontWeight: 'bold', color: '#111', marginBottom: '0.2rem'}}>Dominant</div>
-                            <p style={{color: '#666', fontSize: '0.9rem', margin: 0}}>In jouw markt</p>
-                        </div>
+                        {/* 
+                          We gebruiken een reguliere img tag voor de screenshot om hem zo scherp mogelijk te houden.
+                          De randen en zwevende kaders zitten al IN de foto, dus we hebben de CSS kaders verwijderd.
+                        */}
+                        <img 
+                            src="/hero.png" 
+                            alt="Yomarra Social Media Agency overzicht" 
+                            style={{
+                                width: '100%', 
+                                height: 'auto', 
+                                objectFit: 'contain',
+                                imageRendering: 'high-quality'
+                            }} 
+                        />
                     </div>
                 </div>
             </div>
@@ -309,7 +291,7 @@ export default function Home() {
                         <p style={{color: '#666', fontSize: '0.9rem', marginBottom: '2rem', minHeight: '60px'}}>Voor ondernemers die professioneel zichtbaar willen worden.</p>
                         
                         <div style={{marginBottom: '2rem', display: 'flex', alignItems: 'baseline', gap: '0.5rem'}}>
-                            <span style={{fontSize: '3rem', fontWeight: 'bold', color: '#111'}}>â‚¬250</span>
+                            <span style={{fontSize: '3rem', fontWeight: 'bold', color: '#111'}}>Ã¢â€šÂ¬250</span>
                         </div>
 
                         <ul style={{listStyle: 'none', padding: 0, margin: '0 0 2.5rem 0', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
@@ -328,10 +310,10 @@ export default function Home() {
                             Meest gekozen
                         </div>
                         <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', color: '#111', marginBottom: '0.5rem', marginTop: '1rem'}}>Groei Pakket</h3>
-                        <p style={{color: '#666', fontSize: '0.9rem', marginBottom: '2rem', minHeight: '60px'}}>Voor ondernemers die willen groeien in bereik, DMâ€™s en omzet.</p>
+                        <p style={{color: '#666', fontSize: '0.9rem', marginBottom: '2rem', minHeight: '60px'}}>Voor ondernemers die willen groeien in bereik, DMÃ¢â‚¬â„¢s en omzet.</p>
                         
                         <div style={{marginBottom: '2rem', display: 'flex', alignItems: 'baseline', gap: '0.5rem'}}>
-                            <span style={{fontSize: '3.5rem', fontWeight: 'bold', color: '#111'}}>â‚¬499</span>
+                            <span style={{fontSize: '3.5rem', fontWeight: 'bold', color: '#111'}}>Ã¢â€šÂ¬499</span>
                             <span style={{color: '#666'}}>/ mnd</span>
                         </div>
 
@@ -351,7 +333,7 @@ export default function Home() {
                         <p style={{color: '#666', fontSize: '0.9rem', marginBottom: '2rem', minHeight: '60px'}}>Voor ondernemers die social media volledig willen uitbesteden.</p>
                         
                         <div style={{marginBottom: '2rem', display: 'flex', alignItems: 'baseline', gap: '0.5rem'}}>
-                            <span style={{fontSize: '3rem', fontWeight: 'bold', color: '#111'}}>â‚¬1000</span>
+                            <span style={{fontSize: '3rem', fontWeight: 'bold', color: '#111'}}>Ã¢â€šÂ¬1000</span>
                             <span style={{color: '#666'}}>/ mnd</span>
                         </div>
 
@@ -371,4 +353,5 @@ export default function Home() {
     </main>
   );
 }
+
 

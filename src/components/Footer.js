@@ -28,7 +28,6 @@ export default function Footer() {
                     <h2 style={{fontSize: '0.9rem', textTransform: 'uppercase', marginBottom: '1.5rem', letterSpacing: '1px', color: '#D2B48C'}}>Informatie</h2>
                     <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem'}}>
                         <li><Link href="/over-ons" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Over ons</Link></li>
-                        <li><Link href="/#projects" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Projecten</Link></li>
                     </ul>
                 </div>
             </div>
