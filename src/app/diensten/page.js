@@ -1,6 +1,12 @@
+// --- DIENSTEN PAGINA ---
+// Dit bestand toont alle diensten die Yomarra aanbiedt.
+
 ﻿import Link from 'next/link';
 
+// Deze functie bouwt en tekent de complete Diensten-pagina
 export default function Diensten() {
+  
+  // Hieronder begint de weergave (hoe het eruit ziet op je beeldscherm)
   return (
     <main style={{overflowX: 'hidden'}}>
       <style dangerouslySetInnerHTML={{__html: `
@@ -42,7 +48,7 @@ export default function Diensten() {
             
             {/* Dienst 1 */}
             <div className="service-container" id="promotie" style={{backgroundColor: '#fff', borderRadius: '24px', padding: '3rem 2rem', border: '1px solid #eee', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
-              <h3 style={{fontSize: '1.8rem', color: '#111', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold', marginBottom: '1rem'}}>Promotie</h3>
+              <h2 style={{fontSize: '1.8rem', color: '#111', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold', marginBottom: '1rem'}}>Promotie</h2>
               <p style={{color: '#555', lineHeight: '1.7', marginBottom: '1.5rem'}}>
                 Met doelgerichte promotie zorgen we ervoor dat jouw merk opvalt. Van pakkende advertentiecampagnes tot strategische samenwerkingen, we trekken de aandacht van jouw ideale doelgroep en vergroten je bereik.
               </p>
@@ -51,7 +57,7 @@ export default function Diensten() {
 
             {/* Dienst 2 */}
             <div className="service-container" id="strategie" style={{backgroundColor: '#fff', borderRadius: '24px', padding: '3rem 2rem', border: '1px solid #eee', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
-              <h3 style={{fontSize: '1.8rem', color: '#111', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold', marginBottom: '1rem'}}>Strategie</h3>
+              <h2 style={{fontSize: '1.8rem', color: '#111', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold', marginBottom: '1rem'}}>Strategie</h2>
               <p style={{color: '#555', lineHeight: '1.7', marginBottom: '1.5rem'}}>
                 Zonder plan geen succes. Wij ontwikkelen een datagedreven social media strategie die naadloos aansluit bij jouw bedrijfsdoelen. We bepalen de juiste platformen, de tone-of-voice en de contentpilaren voor maximale impact.
               </p>
@@ -60,7 +66,7 @@ export default function Diensten() {
 
             {/* Dienst 3 */}
             <div className="service-container" id="content" style={{backgroundColor: '#fff', borderRadius: '24px', padding: '3rem 2rem', border: '1px solid #eee', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
-              <h3 style={{fontSize: '1.8rem', color: '#111', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold', marginBottom: '1rem'}}>Content Creatie</h3>
+              <h2 style={{fontSize: '1.8rem', color: '#111', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold', marginBottom: '1rem'}}>Content Creatie</h2>
               <p style={{color: '#555', lineHeight: '1.7', marginBottom: '1.5rem'}}>
                 Van opvallende visuals tot boeiende video's en overtuigende teksten. Wij creëren content die niet alleen mooi is, maar ook converteert. Content die het verhaal van jouw merk vertelt en interactie uitlokt.
               </p>

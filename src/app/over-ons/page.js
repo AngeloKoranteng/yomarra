@@ -1,6 +1,12 @@
+// --- OVER ONS ---
+// Pagina waarop informatie over oprichter Marvin Agyei staat.
+
 ﻿import Link from 'next/link';
 
+// Functie die de Over Ons pagina klaarmaakt en op het scherm tekent
 export default function OverOns() {
+  
+  // Dit hele blok code (HTML) is puur bedoeld voor de uiterlijke weergave in de browser
   return (
     <main style={{overflowX: 'hidden', backgroundColor: '#fff', paddingBottom: '4rem'}}>
       {/* Hero / Header Section */}

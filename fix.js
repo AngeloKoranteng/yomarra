@@ -1,4 +1,14 @@
-﻿// --- PROJECT DETAIL PAGINA ---
+﻿const fs = require('fs');
+let c = fs.readFileSync('src/app/layout.js', 'utf8');
+c = c.replace(/<body className=\{.*?\}>/, '<body className={`\${montserrat.variable} \${openSans.variable} \${luckiestGuy.variable} \${dancingScript.variable}`}>');
+fs.writeFileSync('src/app/layout.js', c, 'utf8');
+
+c = fs.readFileSync('src/app/projecten/[id]/page.js', 'utf8');
+c = c.replace(/fullText:\s+Dit project draaide(.*\n.*?)+?social channels.\s+,/g, "fullText: `\n            Dit project draaide volledig om het herpositioneren van het merk in een overvolle markt.\n            Onze aanpak begon met een diepgaande analyse van de doelgroep en concurrentie.\n            Vervolgens hebben we een nieuwe visuele stijl ontwikkeld die krachtiger en moderner oogt.\n            De resultaten waren direct zichtbaar: een stijging van 40% in engagement en een verdubbeling van de website traffic via social channels.\n        `,");
+c = c.replace(/fullText:\s+Voor Tech Startup Y was de uitdaging(.*\n.*?)+?voor de lancering.\s+,/g, "fullText: `\n            Voor Tech Startup Y was de uitdaging duidelijk: snel zichtbaarheid creëren voor hun nieuwe app.\n            We kozen voor een 'community-first' aanpak, waarbij we niet alleen zonden, maar vooral het gesprek aangingen.\n            Door gebruik te maken van trending audio op TikTok en educatieve Reels op Instagram, wisten we een loyale schare fans op te bouwen nog voor de lancering.\n        `,");
+
+// Since the whole structure in `projecten/[id]/page.js` might be messed up due to lack of backticks and broken templating strings, let's just write the whole thing
+const fullProject = `// --- PROJECT DETAIL PAGINA ---
 // Dit bestand laadt de details van specifieke projecten in (bijvoorbeeld 'fashion-brand' of 'tech-startup').
 import Link from 'next/link';
 import { FaArrowLeft } from 'react-icons/fa'; // Dit importeert het 'terug' pijltje
@@ -9,12 +19,12 @@ const projectsData = {
         title: "Fashion Brand X",
         category: "Rebranding & Content",
         description: "Volledige rebranding en social media strategie voor een opkomend modemerk. We hebben de visuele identiteit opnieuw gedefinieerd om een jongere doelgroep aan te spreken.",
-        fullText: `
+        fullText: \\\`
             Dit project draaide volledig om het herpositioneren van het merk in een overvolle markt.
             Onze aanpak begon met een diepgaande analyse van de doelgroep en concurrentie.
             Vervolgens hebben we een nieuwe visuele stijl ontwikkeld die krachtiger en moderner oogt.
             De resultaten waren direct zichtbaar: een stijging van 40% in engagement en een verdubbeling van de website traffic via social channels.
-        `,
+        \\\`,
         image: "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=1200&q=80",
         stats: [
             { label: "Groei in volgers", value: "+2.5k" },
@@ -26,11 +36,11 @@ const projectsData = {
         title: "Tech Startup Y",
         category: "Groei & Community",
         description: "Van 0 naar 10k volgers in 3 maanden. Door focus op community management en virale content formats.",
-        fullText: `
+        fullText: \\\`
             Voor Tech Startup Y was de uitdaging duidelijk: snel zichtbaarheid creëren voor hun nieuwe app.
             We kozen voor een 'community-first' aanpak, waarbij we niet alleen zonden, maar vooral het gesprek aangingen.
             Door gebruik te maken van trending audio op TikTok en educatieve Reels op Instagram, wisten we een loyale schare fans op te bouwen nog voor de lancering.
-        `,
+        \\\`,
         image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
         stats: [
             { label: "Bereik", value: "1.2M+" },
@@ -109,4 +119,7 @@ export default async function ProjectPage({ params }) {
 
         </main>
     );
-}
+}`;
+
+fs.writeFileSync('src/app/projecten/[id]/page.js', fullProject.replace(/\\`/g, "`"), 'utf8');
+

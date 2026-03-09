@@ -1,4 +1,4 @@
-import { FaInstagram, FaTiktok } from 'react-icons/fa';
+﻿import { FaInstagram, FaTiktok } from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -9,26 +9,26 @@ export default function Footer() {
                 
                 {/* Col 1: Logo & Slogan */}
                 <div>
-                    <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem', letterSpacing: '1px', color: '#D2B48C'}}>YOMARRA</h3>
+                    <h2 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem', letterSpacing: '1px', color: '#D2B48C'}}>YOMARRA</h2>
                     <p style={{color: '#888', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '2px'}}>Social media agency</p>
                 </div>
 
                 {/* Col 2: Diensten */}
                 <div>
-                    <h4 style={{fontSize: '0.9rem', textTransform: 'uppercase', marginBottom: '1.5rem', letterSpacing: '1px', color: '#D2B48C'}}>Diensten</h4>
+                    <h2 style={{fontSize: '0.9rem', textTransform: 'uppercase', marginBottom: '1.5rem', letterSpacing: '1px', color: '#D2B48C'}}>Diensten</h2>
                     <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem'}}>
-                        <li><Link href="/diensten" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Social media strategie</Link></li>
-                        <li><Link href="/diensten" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Content creatie</Link></li>
-                        <li><Link href="/diensten" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Branding</Link></li>
+                        <li><Link href="/diensten#strategie" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Social media strategie</Link></li>
+                        <li><Link href="/diensten#content" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Content creatie</Link></li>
+                        <li><Link href="/diensten#promotie" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Branding / Promotie</Link></li>
                     </ul>
                 </div>
 
                 {/* Col 3: Informatie */}
                 <div>
-                    <h4 style={{fontSize: '0.9rem', textTransform: 'uppercase', marginBottom: '1.5rem', letterSpacing: '1px', color: '#D2B48C'}}>Informatie</h4>
+                    <h2 style={{fontSize: '0.9rem', textTransform: 'uppercase', marginBottom: '1.5rem', letterSpacing: '1px', color: '#D2B48C'}}>Informatie</h2>
                     <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem'}}>
                         <li><Link href="/over-ons" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Over ons</Link></li>
-                        <li><Link href="/projects" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Projecten</Link></li>
+                        <li><Link href="/#projects" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Projecten</Link></li>
                     </ul>
                 </div>
             </div>
@@ -41,17 +41,17 @@ export default function Footer() {
                 
                 {/* Social Icons */}
                 <div style={{display: 'flex', gap: '1rem'}}>
-                     <a href="https://www.instagram.com/yomarra.co?igsh=MWplOG81eGhsczNh&utm_source=qr" target="_blank" rel="noopener noreferrer" style={{width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #444', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', transition: 'all 0.3s'}}>
-                        <FaInstagram size={18} />
+                     <a href="https://www.instagram.com/yomarra.co?igsh=MWplOG81eGhsczNh&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Bezoek de Yomarra Instagram" style={{width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #444', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', transition: 'all 0.3s'}}>
+                         <FaInstagram size={18} aria-hidden="true" />
                      </a>
-                     <a href="https://www.tiktok.com/@yomarra.co?_r=1&_t=ZG-93BQ7kPSGDA" target="_blank" rel="noopener noreferrer" style={{width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #444', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', transition: 'all 0.3s'}}>
-                        <FaTiktok size={16} />
+                     <a href="https://www.tiktok.com/@yomarra.co?_r=1&_t=ZG-93BQ7kPSGDA" target="_blank" rel="noopener noreferrer" aria-label="Bezoek de Yomarra TikTok" style={{width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #444', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', transition: 'all 0.3s'}}>
+                         <FaTiktok size={16} aria-hidden="true" />
                      </a>
                 </div>
-                
+
                 {/* Personal Info & Copyright */}
                 <div style={{color: '#888', fontSize: '0.85rem', textAlign: 'center', lineHeight: '1.6'}}>
-                    <p>Email: <a href="mailto:infoyomarra@gmail.com" style={{color: '#aaa', textDecoration: 'none'}}>infoyomarra@gmail.com</a> | KVK: 90645561 | Venray, Nederland</p>
+                    <p>Email: <a href="mailto:infoyomarra@gmail.com" style={{color: '#aaa', textDecoration: 'underline'}}>infoyomarra@gmail.com</a> | KVK: 90645561 | Venray, Nederland</p>
                     <p style={{marginTop: '0.5rem'}}>&copy; 2026 Yomarra. Alle rechten voorbehouden.</p>
                 </div>
             </div>

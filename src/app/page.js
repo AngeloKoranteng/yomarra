@@ -1,10 +1,17 @@
+// --- HOMEPAGE CODE ---
+// Dit bestand bouwt de hele beginpagina van de website.
+// We laden hier afbeeldingen, kaders en testjes in om deze te tonen.
+
 ﻿import Image from "next/image";
 import ContactForm from "../components/ContactForm";
 import Link from "next/link";
 import { FaArrowRight, FaStar, FaChartLine, FaCheckCircle, FaLaptop, FaBullseye, FaComments, FaBullhorn, FaMobileAlt, FaCamera, FaUserFriends } from 'react-icons/fa';
 // Global styles are imported in layout.js
 
+// Dit is het hoofdblok (functie) die alle onderdelen van de Homepage verzamelt.
 export default function Home() {
+  
+  // Wat hieronder in de -return- staat, is grofweg de HTML (visuele blokken) die op het scherm verschijnt.
   return (
     <main style={{position: 'relative', overflowX: 'hidden'}}>
         {/* Style block for animations */}
@@ -118,7 +125,7 @@ export default function Home() {
                         justifyContent: 'center'
                     }}>
                         {/* We use the custom drawing grid uploaded by the user */}
-                        <img src="/Homepagina.jpeg" alt="Yomarra Homefoto" style={{width: '95%', height: '95%', objectFit: 'contain'}} />
+                        <img src="/Homepagina.jpeg" alt="Yomarra Social Media Agency illustratie van telefoon en likes" style={{width: '95%', height: '95%', objectFit: 'contain'}} />
                     </div>
                     
                     {/* Floating Stat Box */}
@@ -140,7 +147,7 @@ export default function Home() {
                             <FaChartLine />
                         </div>
                         <div>
-                            <h4 style={{fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', fontWeight: 'bold', color: '#111', marginBottom: '0.2rem'}}>Dominant</h4>
+                            <div style={{fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', fontWeight: 'bold', color: '#111', marginBottom: '0.2rem'}}>Dominant</div>
                             <p style={{color: '#666', fontSize: '0.9rem', margin: 0}}>In jouw markt</p>
                         </div>
                     </div>
@@ -180,7 +187,7 @@ export default function Home() {
                         }}>
                             <FaBullhorn />
                         </div>
-                        <h4 style={{marginTop: '1rem', color: '#111', fontWeight: 'bold', fontSize: '1.1rem'}}>Promotie</h4>
+                        <div>Promotie</div>
                     </Link>
 
                     {/* Emoticon 2: Target / Strategy */}
@@ -196,7 +203,7 @@ export default function Home() {
                         }}>
                             <FaBullseye />
                         </div>
-                        <h4 style={{marginTop: '1rem', color: '#111', fontWeight: 'bold', fontSize: '1.1rem'}}>Strategie</h4>
+                        <div>Strategie</div>
                     </Link>
 
                     {/* Emoticon 3: Camera / Content */}
@@ -212,7 +219,7 @@ export default function Home() {
                         }}>
                             <FaCamera />
                         </div>
-                        <h4 style={{marginTop: '1rem', color: '#111', fontWeight: 'bold', fontSize: '1.1rem'}}>Content</h4>
+                        <div>Content</div>
                     </Link>
                 </div>
             </div>
@@ -364,3 +371,4 @@ export default function Home() {
     </main>
   );
 }
+

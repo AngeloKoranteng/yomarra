@@ -1,86 +1,94 @@
-'use client';
-import { useState, useEffect } from 'react';
+﻿"use client";
+
+import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    // Sluit menu bij elke route change
-    const handleRouteChange = () => {
-      setIsMobileMenuOpen(false);
-      setIsDropdownOpen(false);
-    };
-    router.events?.on('routeChangeStart', handleRouteChange);
-    return () => {
-      router.events?.off('routeChangeStart', handleRouteChange);
-    };
-  }, [router]);
+  const pathname = usePathname();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const toggleDropdown = (e) => {
-    e.preventDefault();
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const closeMenu = () => {
+  const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-    setIsDropdownOpen(false);
-  };
-
-  const closeDropdown = () => {
-    setIsDropdownOpen(false);
   };
 
   return (
-    <>
-      <div className="top-wave" style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            overflow: 'hidden',
-            lineHeight: 0,
-            zIndex: 0
-        }}>
-            <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{width: '100%', height: '80px', display: 'block'}}>
-                 <path fill="#F2E6D8" d="M0,0 L1440,0 L1440,50 C1000,90 400,90 0,50 Z" />
-            </svg>
+    <header className="header">
+      <div className="container header-container">
+        
+        {/* Logo L - Hier wordt de afbeelding ingeladen en er is een aria-label voor screenreaders */}
+        <Link href="/" className="logo-link" aria-label="Ga naar de homepagina" onClick={closeMobileMenu}>
+          <div className="logo-image-container">
+            <Image 
+              src="/logo1.jpg" 
+              alt="Yomarra Logo" 
+              fill
+              className="logo-img"
+              sizes="(max-width: 768px) 150px, 200px"
+              priority
+            />
+          </div>
+        </Link>
+
+        {/* Hamburger Menu Knop voor Mobiel - Voorzien van aria-label en aria-expanded */}
+        <button 
+          className="mobile-menu-btn" 
+          onClick={toggleMobileMenu} 
+          aria-label={isMobileMenuOpen ? 'Mobiel menu sluiten' : 'Mobiel menu openen'}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-navigation"
+        >
+          <span className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></span>
+          <span className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></span>
+          <span className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></span>
+        </button>
+
+        {/* Navigatie Menu - Toont links en markeert de actieve pagina met aria-current */}
+        <nav id="mobile-navigation" className={`nav ${isMobileMenuOpen ? 'open' : ''}`} aria-hidden={!isMobileMenuOpen && typeof window !== 'undefined' && window.innerWidth < 768}>
+          <ul className="nav-list">
+            <li>
+              <Link 
+                href="/diensten" 
+                className={`nav-link ${pathname === '/diensten' ? 'active' : ''}`} 
+                onClick={closeMobileMenu}
+                aria-current={pathname === '/diensten' ? 'page' : undefined}
+              >
+                Diensten
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/#projects" 
+                className="nav-link" 
+                onClick={closeMobileMenu}
+              >
+                Projecten
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/over-ons" 
+                className={`nav-link ${pathname === '/over-ons' ? 'active' : ''}`} 
+                onClick={closeMobileMenu}
+                aria-current={pathname === '/over-ons' ? 'page' : undefined}
+              >
+                Over ons
+              </Link>
+            </li>
+          </ul>
+
+          {/* Contact Knop direct in het menu (mobiel) of in de header (desktop) */}
+          <Link href="/contact" className="btn btn-primary contact-btn" onClick={closeMobileMenu}>
+            Contact
+          </Link>
+        </nav>
       </div>
 
-      <header className="header" style={{position: 'relative', zIndex: 100, backgroundColor: 'transparent', boxShadow: 'none', borderBottom: 'none'}}>
-          <div className="container header-container">
-              <div className="logo-container" style={{marginTop: '10px'}}>
-                  <Link href="/" className="logo-link">
-                      <img src="/logo-transparent.png" alt="Yomarra Logo" className="logo" style={{height: '100%', width: 'auto', objectFit: 'contain'}} />
-                  </Link>
-              </div>
-
-              <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
-                  <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                  </div>
-              </button>
-
-              <nav className={`nav ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-                  <ul>
-                      <li><Link href="/" onClick={closeMenu}>Home</Link></li>
-                      <li><Link href="/over-ons" onClick={closeMenu}>Over ons</Link></li>
-                      <li><Link href="/diensten" onClick={closeMenu}>Diensten</Link></li>
-                      <li><Link href="/contact" onClick={closeMenu}>Contact</Link></li>
-                      <li><Link href="/contact" className="nav-btn" onClick={closeMenu}>Start Nu</Link></li>
-                  </ul>
-              </nav>
-          </div>
-      </header>
-    </>
+    </header>
   );
 }
