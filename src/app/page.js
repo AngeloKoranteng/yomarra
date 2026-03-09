@@ -2,7 +2,7 @@
 // Dit bestand bouwt de hele beginpagina van de website.
 // We laden hier afbeeldingen, kaders en testjes in om deze te tonen.
 
-ï»¿import Image from "next/image";
+import Image from "next/image";
 import ContactForm from "../components/ContactForm";
 import Link from "next/link";
 import { FaArrowRight, FaStar, FaChartLine, FaCheckCircle, FaLaptop, FaBullseye, FaComments, FaBullhorn, FaMobileAlt, FaCamera, FaUserFriends } from 'react-icons/fa';
@@ -353,5 +353,6 @@ export default function Home() {
     </main>
   );
 }
+
 
 
