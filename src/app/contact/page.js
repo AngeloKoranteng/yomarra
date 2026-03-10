@@ -18,7 +18,7 @@ export default function Contact() {
               Heb je vragen over onze diensten of wil je direct een intakegesprek inplannen? Laat een bericht achter, we denken graag met je mee!
             </p>
 
-            <a href="/Yomarra_Offerte.pptx" download style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', backgroundColor: '#1A1110', padding: '1rem 2rem', borderRadius: '10px', color: '#FDFAF6', textDecoration: 'none', transition: '0.3s', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 4px 15px rgba(0,0,0,0.1)', marginBottom: '3rem' }}>
+            <a href="/yomarra-offerte-sectie.pdf" download style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', backgroundColor: '#1A1110', padding: '1rem 2rem', borderRadius: '10px', color: '#FDFAF6', textDecoration: 'none', transition: '0.3s', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 4px 15px rgba(0,0,0,0.1)', marginBottom: '3rem' }}>
               <FaFilePdf style={{ fontSize: '1.5rem', color: '#C27A55' }} /> 
               <div style={{ textAlign: 'left' }}>
                   <div style={{ fontWeight: 'bold', fontSize: '1rem', color: '#FDFAF6' }}>Download Offerte</div>

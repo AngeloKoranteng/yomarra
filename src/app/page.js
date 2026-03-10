@@ -269,7 +269,7 @@ export default function Home() {
                     <h2 style={{fontFamily: 'var(--font-montserrat)', color: '#111', fontSize: '3rem', fontWeight: 'bold'}}>Kies jouw pakket</h2>
                     <p style={{color: '#555', maxWidth: '600px', margin: '0 auto', marginBottom: '2rem'}}>Transparante prijzen, maximale impact. Alle prijzen zijn exclusief btw.</p>
                     <div style={{display: 'flex', justifyContent: 'center'}}>
-                        <a href="/Yomarra_Offerte.pptx" download style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', backgroundColor: '#1A1110', padding: '1rem 2rem', borderRadius: '10px', color: '#FDFAF6', textDecoration: 'none', transition: '0.3s', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 8px 20px rgba(0,0,0,0.15)' }}>
+                        <a href="/yomarra-offerte-sectie.pdf" download style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', backgroundColor: '#1A1110', padding: '1rem 2rem', borderRadius: '10px', color: '#FDFAF6', textDecoration: 'none', transition: '0.3s', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 8px 20px rgba(0,0,0,0.15)' }}>
                             <FaFilePdf style={{ fontSize: '1.8rem', color: '#C27A55' }} /> 
                             <div style={{ textAlign: 'left' }}>
                                 <div style={{ fontWeight: 'bold', fontSize: '1.1rem', color: '#FDFAF6' }}>Download Offerte</div>
