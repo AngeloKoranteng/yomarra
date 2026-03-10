@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -69,6 +69,7 @@ export default function Header() {
                   <ul>
                       <li><Link href="/" onClick={closeMenu}>Home</Link></li>
                       <li><Link href="/over-ons" onClick={closeMenu}>Over ons</Link></li>
+                      
                       <li><Link href="/diensten" onClick={closeMenu}>Diensten</Link></li>
                       <li><Link href="/contact" onClick={closeMenu}>Contact</Link></li>
                       <li><Link href="/contact" className="nav-btn" onClick={closeMenu}>Start Nu</Link></li>
@@ -79,3 +80,4 @@ export default function Header() {
     </>
   );
 }
+

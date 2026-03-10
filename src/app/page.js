@@ -5,7 +5,7 @@
 import Image from "next/image";
 import ContactForm from "../components/ContactForm";
 import Link from "next/link";
-import { FaArrowRight, FaStar, FaChartLine, FaCheckCircle, FaLaptop, FaBullseye, FaComments, FaBullhorn, FaMobileAlt, FaCamera, FaUserFriends } from 'react-icons/fa';
+import { FaArrowRight, FaStar, FaChartLine, FaCheckCircle, FaLaptop, FaBullseye, FaComments, FaBullhorn, FaMobileAlt, FaCamera, FaUserFriends, FaFilePdf } from 'react-icons/fa';
 // Global styles are imported in layout.js
 
 // Dit is het hoofdblok (functie) die alle onderdelen van de Homepage verzamelt.
@@ -281,71 +281,76 @@ export default function Home() {
             <div className="container" style={{position: 'relative', zIndex: 2, marginTop: '2rem'}}>
                 <div style={{textAlign: 'center', marginBottom: '4rem'}}>
                     <h2 style={{fontFamily: 'var(--font-montserrat)', color: '#111', fontSize: '3rem', fontWeight: 'bold'}}>Kies jouw pakket</h2>
-                    <p style={{color: '#555', maxWidth: '600px', margin: '0 auto'}}>Transparante prijzen, maximale impact. Alle prijzen zijn exclusief btw.</p>
+                    <p style={{color: '#555', maxWidth: '600px', margin: '0 auto', marginBottom: '2rem'}}>Transparante prijzen, maximale impact. Alle prijzen zijn exclusief btw.</p>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                        <a href="/Yomarra_Offerte.pptx" download style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', backgroundColor: '#1A1110', padding: '1rem 2rem', borderRadius: '10px', color: '#FDFAF6', textDecoration: 'none', transition: '0.3s', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 8px 20px rgba(0,0,0,0.15)' }}>
+                            <FaFilePdf style={{ fontSize: '1.8rem', color: '#C27A55' }} /> 
+                            <div style={{ textAlign: 'left' }}>
+                                <div style={{ fontWeight: 'bold', fontSize: '1.1rem', color: '#FDFAF6' }}>Download Offerte</div>
+                                <div style={{ fontSize: '0.85rem', color: 'rgba(253,250,246,0.6)', marginTop: '0.2rem' }}>Bekijk de uitgebreide pakket specificaties</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', alignItems: 'center'}}>
+                                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', maxWidth: '1100px', margin: '0 auto', alignItems: 'stretch'}}>
                     
-                    {/* Card 1: Start */}
-                    <div className="price-card" style={{backgroundColor: '#fff', borderRadius: '30px', padding: '3rem 2rem', border: '2px solid transparent', boxShadow: '0 10px 30px rgba(0,0,0,0.05)'}}>
-                        <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', color: '#111', marginBottom: '0.5rem'}}>Start Pakket</h3>
-                        <p style={{color: '#666', fontSize: '0.9rem', marginBottom: '2rem', minHeight: '60px'}}>Voor ondernemers die professioneel zichtbaar willen worden.</p>
-                        
-                        <div style={{marginBottom: '2rem', display: 'flex', alignItems: 'baseline', gap: '0.5rem'}}>
-                            <span style={{fontSize: '3rem', fontWeight: 'bold', color: '#111'}}>Ã¢â€šÂ¬250</span>
+                    {/* START */}
+                    <div style={{ backgroundColor: '#fff9f4', border: '1px solid rgba(122,46,18,0.12)', padding: '2.5rem 2rem', position: 'relative', overflow: 'hidden', borderTop: '4px solid #7A2E12', borderRadius: '8px' }}>
+                        <div style={{ fontSize: '0.68rem', letterSpacing: '3px', color: '#C27A55', marginBottom: '0.5rem', textTransform: 'uppercase' }}>01</div>
+                        <div style={{ fontFamily: 'var(--font-playfair-display)', fontSize: '2.6rem', color: '#1A1110', lineHeight: 1, marginBottom: '0.4rem', fontWeight: 'bold' }}>START</div>
+                        <div style={{ fontSize: '0.85rem', color: '#8C7B6E', fontStyle: 'italic', marginBottom: '1.5rem' }}>De fundering van een serieus merk</div>
+                        <div style={{ marginBottom: '0.3rem' }}>
+                            <span style={{ fontFamily: 'var(--font-playfair-display)', fontSize: '2.4rem', color: '#7A2E12', lineHeight: 1, fontWeight: 'bold' }}>€250</span>
+                            <span style={{ fontSize: '0.8rem', color: '#8C7B6E' }}> eenmalig</span>
                         </div>
-
-                        <ul style={{listStyle: 'none', padding: 0, margin: '0 0 2.5rem 0', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-                            <li style={{display: 'flex', alignItems: 'center', gap: '0.8rem', color: '#555'}}><FaCheckCircle color="#8ea6ff" /> Merkidentiteit & strategie</li>
-                            <li style={{display: 'flex', alignItems: 'center', gap: '0.8rem', color: '#555'}}><FaCheckCircle color="#8ea6ff" /> Visuele & tekstuele basis</li>
-                            <li style={{display: 'flex', alignItems: 'center', gap: '0.8rem', color: '#555'}}><FaCheckCircle color="#8ea6ff" /> Content toolkit</li>
-                            <li style={{display: 'flex', alignItems: 'center', gap: '0.8rem', color: '#555'}}><FaCheckCircle color="#8ea6ff" /> Looptijd: 1-2 maanden</li>
+                        <div style={{ fontSize: '0.75rem', color: '#8C7B6E', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1.8rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(122,46,18,0.1)' }}>Looptijd: 1 – 2 maanden</div>
+                        <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Branding analyse & positionering</li>
+                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Merkidentiteit & tone of voice</li>
+                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Contentstrategie & pilaren</li>
+                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Hooks, captions & Canva templates</li>
                         </ul>
-
-                        <Link href="/contact?plan=start" className="btn" style={{display: 'block', textAlign: 'center', backgroundColor: '#f0f0f0', color: '#111', padding: '1.2rem', borderRadius: '12px', fontWeight: 'bold', transition: 'all 0.3s', textDecoration: 'none'}}>Aanvragen</Link>
+                        <Link href="/contact?plan=start" style={{ display: 'block', textAlign: 'center', padding: '0.85rem', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', border: '1.5px solid #7A2E12', color: '#7A2E12', background: 'transparent' }}>Aanvragen</Link>
                     </div>
 
-                    {/* Card 2: Groei (Popular) */}
-                    <div className="price-card-popular price-card" style={{backgroundColor: '#fff', borderRadius: '30px', padding: '4rem 2rem 3rem 2rem', border: '2px solid transparent', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', position: 'relative'}}>
-                        <div style={{position: 'absolute', top: 0, left: '0', right: '0', backgroundColor: '#FCD553', color: '#111', textAlign: 'center', padding: '1rem', fontWeight: 'bold', fontSize: '1rem', borderTopLeftRadius: '28px', borderTopRightRadius: '28px'}}>
-                            Meest gekozen
+                    {/* GROEI */}
+                    <div style={{ backgroundColor: '#7A2E12', border: '1px solid #7A2E12', padding: '2.5rem 2rem', position: 'relative', overflow: 'hidden', borderTop: '4px solid #C27A55', boxShadow: '0 20px 50px rgba(122,46,18,0.3)', borderRadius: '8px' }}>
+                        <div style={{ position: 'absolute', top: '1.2rem', right: '1.2rem', background: '#FDFAF6', color: '#7A2E12', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', padding: '0.25rem 0.7rem' }}>Meest gekozen</div>
+                        <div style={{ fontSize: '0.68rem', letterSpacing: '3px', color: 'rgba(253,250,246,0.5)', marginBottom: '0.5rem', textTransform: 'uppercase' }}>02</div>
+                        <div style={{ fontFamily: 'var(--font-playfair-display)', fontSize: '2.6rem', color: '#FDFAF6', lineHeight: 1, marginBottom: '0.4rem', fontWeight: 'bold' }}>GROEI</div>
+                        <div style={{ fontSize: '0.85rem', color: 'rgba(253,250,246,0.6)', fontStyle: 'italic', marginBottom: '1.5rem' }}>Bereik omzetten in klanten</div>
+                        <div style={{ marginBottom: '0.3rem' }}>
+                            <span style={{ fontFamily: 'var(--font-playfair-display)', fontSize: '2.4rem', color: '#FDFAF6', lineHeight: 1, fontWeight: 'bold' }}>€499</span>
+                            <span style={{ fontSize: '0.8rem', color: 'rgba(253,250,246,0.55)' }}> / maand</span>
                         </div>
-                        <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', color: '#111', marginBottom: '0.5rem', marginTop: '1rem'}}>Groei Pakket</h3>
-                        <p style={{color: '#666', fontSize: '0.9rem', marginBottom: '2rem', minHeight: '60px'}}>Voor ondernemers die willen groeien in bereik, DMÃ¢â‚¬â„¢s en omzet.</p>
-                        
-                        <div style={{marginBottom: '2rem', display: 'flex', alignItems: 'baseline', gap: '0.5rem'}}>
-                            <span style={{fontSize: '3.5rem', fontWeight: 'bold', color: '#111'}}>Ã¢â€šÂ¬499</span>
-                            <span style={{color: '#666'}}>/ mnd</span>
-                        </div>
-
-                        <ul style={{listStyle: 'none', padding: 0, margin: '0 0 2.5rem 0', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-                            <li style={{display: 'flex', alignItems: 'center', gap: '0.8rem', color: '#555'}}><FaCheckCircle color="#FCD553" /> Focus op groei & trends</li>
-                            <li style={{display: 'flex', alignItems: 'center', gap: '0.8rem', color: '#555'}}><FaCheckCircle color="#FCD553" /> Community & sales</li>
-                            <li style={{display: 'flex', alignItems: 'center', gap: '0.8rem', color: '#555'}}><FaCheckCircle color="#FCD553" /> Data-gedreven resultaat</li>
-                            <li style={{display: 'flex', alignItems: 'center', gap: '0.8rem', color: '#555'}}><FaCheckCircle color="#FCD553" /> Looptijd: 3 of 6 maanden</li>
+                        <div style={{ fontSize: '0.75rem', color: 'rgba(253,250,246,0.4)', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1.8rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(253,250,246,0.1)' }}>Looptijd: 3 of 6 maanden</div>
+                        <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                            <li style={{ fontSize: '0.9rem', color: 'rgba(253,250,246,0.8)', display: 'flex', gap: '0.6rem' }}><span style={{ color: 'rgba(253,250,246,0.7)', fontWeight: 700 }}>✓</span> Reels & TikTok strategie</li>
+                            <li style={{ fontSize: '0.9rem', color: 'rgba(253,250,246,0.8)', display: 'flex', gap: '0.6rem' }}><span style={{ color: 'rgba(253,250,246,0.7)', fontWeight: 700 }}>✓</span> Actief community management</li>
+                            <li style={{ fontSize: '0.9rem', color: 'rgba(253,250,246,0.8)', display: 'flex', gap: '0.6rem' }}><span style={{ color: 'rgba(253,250,246,0.7)', fontWeight: 700 }}>✓</span> DM → gesprek → deal systeem</li>
+                            <li style={{ fontSize: '0.9rem', color: 'rgba(253,250,246,0.8)', display: 'flex', gap: '0.6rem' }}><span style={{ color: 'rgba(253,250,246,0.7)', fontWeight: 700 }}>✓</span> Maandelijkse rapportage</li>
                         </ul>
-
-                        <Link href="/contact?plan=groei" className="btn" style={{display: 'block', textAlign: 'center', backgroundColor: '#111', color: '#fff', padding: '1.2rem', borderRadius: '12px', fontWeight: 'bold', transition: 'all 0.3s', textDecoration: 'none'}}>Aanvragen</Link>
+                        <Link href="/contact?plan=groei" style={{ display: 'block', textAlign: 'center', padding: '0.85rem', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', background: '#FDFAF6', color: '#7A2E12', border: '1.5px solid #FDFAF6' }}>Start nu →</Link>
                     </div>
 
-                    {/* Card 3: All-in */}
-                    <div className="price-card" style={{backgroundColor: '#fff', borderRadius: '30px', padding: '3rem 2rem', border: '2px solid transparent', boxShadow: '0 10px 30px rgba(0,0,0,0.05)'}}>
-                        <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', color: '#111', marginBottom: '0.5rem'}}>All-in Pakket</h3>
-                        <p style={{color: '#666', fontSize: '0.9rem', marginBottom: '2rem', minHeight: '60px'}}>Voor ondernemers die social media volledig willen uitbesteden.</p>
-                        
-                        <div style={{marginBottom: '2rem', display: 'flex', alignItems: 'baseline', gap: '0.5rem'}}>
-                            <span style={{fontSize: '3rem', fontWeight: 'bold', color: '#111'}}>Ã¢â€šÂ¬1000</span>
-                            <span style={{color: '#666'}}>/ mnd</span>
+                    {/* ALL-IN */}
+                    <div style={{ backgroundColor: '#fff9f4', border: '1px solid rgba(122,46,18,0.12)', padding: '2.5rem 2rem', position: 'relative', overflow: 'hidden', borderTop: '4px solid #7A2E12', borderRadius: '8px' }}>
+                        <div style={{ fontSize: '0.68rem', letterSpacing: '3px', color: '#C27A55', marginBottom: '0.5rem', textTransform: 'uppercase' }}>03</div>
+                        <div style={{ fontFamily: 'var(--font-playfair-display)', fontSize: '2.6rem', color: '#1A1110', lineHeight: 1, marginBottom: '0.4rem', fontWeight: 'bold' }}>ALL-IN</div>
+                        <div style={{ fontSize: '0.85rem', color: '#8C7B6E', fontStyle: 'italic', marginBottom: '1.5rem' }}>Volledige overname</div>
+                        <div style={{ marginBottom: '0.3rem' }}>
+                            <span style={{ fontFamily: 'var(--font-playfair-display)', fontSize: '2.4rem', color: '#7A2E12', lineHeight: 1, fontWeight: 'bold' }}>€1.000</span>
+                            <span style={{ fontSize: '0.8rem', color: '#8C7B6E' }}> / maand</span>
                         </div>
-
-                        <ul style={{listStyle: 'none', padding: 0, margin: '0 0 2.5rem 0', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-                            <li style={{display: 'flex', alignItems: 'center', gap: '0.8rem', color: '#555'}}><FaCheckCircle color="#ff9a76" /> Full-service beheer</li>
-                            <li style={{display: 'flex', alignItems: 'center', gap: '0.8rem', color: '#555'}}><FaCheckCircle color="#ff9a76" /> Dominantie op video</li>
-                            <li style={{display: 'flex', alignItems: 'center', gap: '0.8rem', color: '#555'}}><FaCheckCircle color="#ff9a76" /> Actief community management</li>
-                            <li style={{display: 'flex', alignItems: 'center', gap: '0.8rem', color: '#555'}}><FaCheckCircle color="#ff9a76" /> Looptijd: Minimaal 6 maanden</li>
+                        <div style={{ fontSize: '0.75rem', color: '#8C7B6E', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1.8rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(122,46,18,0.1)' }}>Minimaal 6 maanden</div>
+                        <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Alles van START + GROEI</li>
+                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Volledige contentplanning</li>
+                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Lead kwalificatie & opvolging</li>
+                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Prioriteit support & check-ins</li>
                         </ul>
-
-                        <Link href="/contact?plan=all-in" className="btn" style={{display: 'block', textAlign: 'center', backgroundColor: '#f0f0f0', color: '#111', padding: '1.2rem', borderRadius: '12px', fontWeight: 'bold', transition: 'all 0.3s', textDecoration: 'none'}}>Aanvragen</Link>
+                        <Link href="/contact?plan=all-in" style={{ display: 'block', textAlign: 'center', padding: '0.85rem', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', border: '1.5px solid #7A2E12', color: '#7A2E12', background: 'transparent' }}>Aanvragen</Link>
                     </div>
 
                 </div>

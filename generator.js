@@ -1,27 +1,29 @@
-import Link from 'next/link';
+const fs = require('fs');
+
+const getTemplate = (serviceName, pathName) => `import Link from 'next/link';
 import { FaPhoneAlt, FaFilePdf, FaArrowRight } from 'react-icons/fa';
 
 export default function ServiceDetail() {
-  const pathName = '/content';
+  const pathName = '${pathName}';
   return (
      <main style={{ backgroundColor: '#F0E6D3', color: '#1A1110', paddingBottom: '8rem', overflowX: 'hidden' }}>
         <section style={{ backgroundColor: '#7A2E12', padding: '10rem 2rem 6rem', textAlign: 'center', color: '#FDFAF6', position: 'relative' }}>
-           <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontFamily: 'var(--font-playfair-display)', marginBottom: '1rem', position: 'relative', zIndex: 2 }}>Content Creatie</h1>
+           <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontFamily: 'var(--font-playfair-display)', marginBottom: '1rem', position: 'relative', zIndex: 2 }}>${serviceName}</h1>
            <div style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', position: 'relative', zIndex: 2, letterSpacing: '2px', textTransform: 'uppercase' }}>
-               <Link href="/" style={{ color: '#FDFAF6', textDecoration: 'none' }}>Home</Link> &bull; <Link href="/#diensten" style={{ color: '#FDFAF6', textDecoration: 'none' }}>Diensten</Link> &bull; <span style={{ color: '#C27A55' }}>Content Creatie</span>
+               <Link href="/" style={{ color: '#FDFAF6', textDecoration: 'none' }}>Home</Link> &bull; <Link href="/#diensten" style={{ color: '#FDFAF6', textDecoration: 'none' }}>Diensten</Link> &bull; <span style={{ color: '#C27A55' }}>${serviceName}</span>
            </div>
         </section>
 
         <div className="container" style={{ marginTop: '4rem' }}>
-            <style dangerouslySetInnerHTML={{__html: `
+            <style dangerouslySetInnerHTML={{__html: \`
                 .service-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; } 
                 @media (min-width: 992px) { .service-grid { grid-template-columns: 1fr 340px !important; } }
-            `}}></style>
+            \`}}></style>
             
             <div className="service-grid">
                 <div style={{ width: '100%' }}>
                     <div style={{ backgroundColor: '#e2d4be', height: '450px', borderRadius: '20px', marginBottom: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#8b4513', overflow: 'hidden', border: '1px solid rgba(122,46,18,0.1)' }}>
-                        <div style={{ fontSize: '2rem', opacity: 0.5, fontFamily: 'var(--font-playfair-display)' }}>[ Visual van: Content Creatie ]</div>
+                        <div style={{ fontSize: '2rem', opacity: 0.5, fontFamily: 'var(--font-playfair-display)' }}>[ Visual van: ${serviceName} ]</div>
                     </div>
                     
                     <h2 style={{ fontSize: '2.5rem', fontFamily: 'var(--font-playfair-display)', marginBottom: '1.5rem', color: '#1A1110', lineHeight: 1.2 }}>Lorem ipsum dolor sit amet consectetur</h2>
@@ -113,4 +115,9 @@ export default function ServiceDetail() {
         </div>
      </main>
   );
-}
+}`;
+
+fs.writeFileSync('src/app/strategie/page.js', getTemplate('Social Media Strategie', '/strategie'));
+fs.writeFileSync('src/app/content/page.js', getTemplate('Content Creatie', '/content'));
+fs.writeFileSync('src/app/promotie/page.js', getTemplate('Promotie & Branding', '/promotie'));
+console.log('Successfully written Next.js pages.');

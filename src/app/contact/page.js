@@ -1,6 +1,6 @@
 import ContactForm from '../../components/ContactForm';
 import Image from 'next/image';
-import { FaLinkedin, FaTiktok, FaInstagram } from 'react-icons/fa';
+import { FaLinkedin, FaTiktok, FaInstagram, FaFilePdf } from 'react-icons/fa';
 
 export default function Contact() {
   return (
@@ -14,9 +14,17 @@ export default function Contact() {
             <h1 style={{ fontSize: '4rem', fontWeight: 'bold', color: '#8B4513', lineHeight: '1.2', marginBottom: '1.5rem', fontFamily: 'var(--font-montserrat)' }}>
               Neem contact<br/>met ons op
             </h1>
-            <p style={{ fontSize: '1.1rem', color: '#333', marginBottom: '3rem', maxWidth: '400px' }}>
+            <p style={{ fontSize: '1.1rem', color: '#333', marginBottom: '2rem', maxWidth: '400px' }}>
               Heb je vragen over onze diensten of wil je direct een intakegesprek inplannen? Laat een bericht achter, we denken graag met je mee!
             </p>
+
+            <a href="/Yomarra_Offerte.pptx" download style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', backgroundColor: '#1A1110', padding: '1rem 2rem', borderRadius: '10px', color: '#FDFAF6', textDecoration: 'none', transition: '0.3s', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 4px 15px rgba(0,0,0,0.1)', marginBottom: '3rem' }}>
+              <FaFilePdf style={{ fontSize: '1.5rem', color: '#C27A55' }} /> 
+              <div style={{ textAlign: 'left' }}>
+                  <div style={{ fontWeight: 'bold', fontSize: '1rem', color: '#FDFAF6' }}>Download Offerte</div>
+                  <div style={{ fontSize: '0.8rem', color: 'rgba(253,250,246,0.6)', marginTop: '0.2rem' }}>Bekijk de uitgebreide specificaties</div>
+              </div>
+            </a>
 
             <div style={{ marginBottom: '2rem' }}>
               <h4 style={{ fontSize: '1rem', color: '#555', marginBottom: '0.2rem' }}>Email adres</h4>
