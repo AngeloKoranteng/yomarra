@@ -118,21 +118,7 @@ export default function Home() {
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}>
-                        {/* 
-                          We gebruiken een reguliere img tag voor de screenshot om hem zo scherp mogelijk te houden.
-                          De randen en zwevende kaders zitten al IN de foto, dus we hebben de CSS kaders verwijderd.
-                        */}
-                        <img 
-                            src="/hero.png" 
-                            alt="Yomarra Social Media Agency overzicht" 
-                            style={{
-                                width: '100%', 
-                                height: 'auto', 
-                                objectFit: 'contain',
-                                imageRendering: 'high-quality',
-                                mixBlendMode: 'darken'
-                            }} 
-                        />
+                        {/* Image removed by request */}
                     </div>
                 </div>
             </div>
