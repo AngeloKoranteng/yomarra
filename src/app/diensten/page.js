@@ -52,7 +52,7 @@ export default function Diensten() {
               <p style={{color: '#555', lineHeight: '1.7', marginBottom: '1.5rem'}}>
                 Met doelgerichte promotie zorgen we ervoor dat jouw merk opvalt. Van pakkende advertentiecampagnes tot strategische samenwerkingen, we trekken de aandacht van jouw ideale doelgroep en vergroten je bereik.
               </p>
-              <Link href="/contact" style={{color: '#8B4513', fontWeight: 'bold', textDecoration: 'none'}}>Meer informatie &rarr;</Link>
+              <Link href="/promotie" style={{color: '#8B4513', fontWeight: 'bold', textDecoration: 'none'}}>Meer informatie &rarr;</Link>
             </div>
 
             {/* Dienst 2 */}
@@ -61,7 +61,7 @@ export default function Diensten() {
               <p style={{color: '#555', lineHeight: '1.7', marginBottom: '1.5rem'}}>
                 Zonder plan geen succes. Wij ontwikkelen een datagedreven social media strategie die naadloos aansluit bij jouw bedrijfsdoelen. We bepalen de juiste platformen, de tone-of-voice en de contentpilaren voor maximale impact.
               </p>
-              <Link href="/contact" style={{color: '#8B4513', fontWeight: 'bold', textDecoration: 'none'}}>Meer informatie &rarr;</Link>
+              <Link href="/strategie" style={{color: '#8B4513', fontWeight: 'bold', textDecoration: 'none'}}>Meer informatie &rarr;</Link>
             </div>
 
             {/* Dienst 3 */}
@@ -70,7 +70,7 @@ export default function Diensten() {
               <p style={{color: '#555', lineHeight: '1.7', marginBottom: '1.5rem'}}>
                 Van opvallende visuals tot boeiende video's en overtuigende teksten. Wij creëren content die niet alleen mooi is, maar ook converteert. Content die het verhaal van jouw merk vertelt en interactie uitlokt.
               </p>
-              <Link href="/contact" style={{color: '#8B4513', fontWeight: 'bold', textDecoration: 'none'}}>Meer informatie &rarr;</Link>
+              <Link href="/content" style={{color: '#8B4513', fontWeight: 'bold', textDecoration: 'none'}}>Meer informatie &rarr;</Link>
             </div>
 
           </div>
