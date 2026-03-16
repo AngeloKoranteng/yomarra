@@ -5,6 +5,7 @@ import "./globals.css";
 // We halen de Header (het menu bovenin) en de Footer (de onderkant) op, zodat we ze op elke pagina kunnen tonen
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Script from "next/script";
 
 // Hieronder stellen we elk lettertype in. Zo weet de website precies hoe de tekst eruit moet zien.
 const luckiestGuy = Luckiest_Guy({
@@ -57,8 +58,38 @@ export default function RootLayout({ children }) {
   return (
     // We vertellen de browser dat de taal van de website Nederlands is
     <html lang="nl">
+      <head>
+        {/* Google Tag Manager */}
+        <Script id="gtm-script" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-W3LCXMLV');
+          `}
+        </Script>
+      </head>
       {/* We zetten de lettertypes aan op de hele body. Daarna tonen we de Header, dan de inhoud van de pagina (children), en sluiten we af met de Footer. */}
       <body className={`${montserrat.variable} ${openSans.variable} ${luckiestGuy.variable} ${dancingScript.variable}`}>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3LCXMLV"
+            height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}>
+          </iframe>
+        </noscript>
+        
+        {/* Google Analytics */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-270KG3TLK3" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-270KG3TLK3');
+          `}
+        </Script>
         <Header />
         {children}
         <Footer />
