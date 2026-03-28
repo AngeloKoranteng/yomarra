@@ -1,59 +1,108 @@
-﻿import { FaInstagram, FaTiktok } from 'react-icons/fa';
+"use client";
+// --- FOOTER CODE ---
+// Dit bestand regelt de footer (onderkant) die op �lke pagina van de website terugkomt.
+
 import Link from 'next/link';
+import { FaInstagram, FaTiktok } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer style={{backgroundColor: '#111', color: '#fff', paddingTop: '4rem', paddingBottom: '2rem', fontSize: '0.9rem'}}>
-        <div className="container">
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '3rem'}}>
+    <footer style={{
+        backgroundColor: '#111', 
+        color: '#fff', 
+        padding: '5rem 0 2rem 0',
+        fontFamily: 'var(--font-open-sans)',
+        borderTop: '5px solid #8B3A0F'
+    }}>
+        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+            
+            {/* Main Footer Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '4rem' }}>
                 
-                {/* Col 1: Logo & Slogan */}
+                {/* Kolom: Logo & Tagline */}
                 <div>
-                    <h2 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem', letterSpacing: '1px', color: '#D2B48C'}}>YOMARRA</h2>
-                    <p style={{color: '#888', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '2px'}}>Social media agency</p>
+                    <Link href="/" style={{ color: '#fff', textDecoration: 'none' }}>
+                        <div style={{
+                            fontFamily: 'var(--font-luckiest-guy)',
+                            fontSize: '2.5rem',
+                            letterSpacing: '2px',
+                            color: '#fff',
+                            marginBottom: '1rem',
+                            display: 'inline-block'
+                        }}>
+                            YOMARRA
+                        </div>
+                    </Link>
+                    <p style={{ color: '#aaa', lineHeight: '1.6', fontSize: '1rem' }}>
+                        "Social media hoeft niet ingewikkeld te zijn."
+                    </p>
                 </div>
 
-                {/* Col 2: Diensten */}
+                {/* Kolom 1: Diensten */}
                 <div>
-                    <h2 style={{fontSize: '0.9rem', textTransform: 'uppercase', marginBottom: '1.5rem', letterSpacing: '1px', color: '#D2B48C'}}>Diensten</h2>
-                    <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem'}}>
-                        <li><Link href="/diensten#strategie" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Social media strategie</Link></li>
-                        <li><Link href="/diensten#content" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Content creatie</Link></li>
-                        <li><Link href="/diensten#promotie" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Branding / Promotie</Link></li>
+                    <h4 style={{ fontFamily: 'var(--font-montserrat)', fontSize: '1.2rem', marginBottom: '1.5rem', fontWeight: 'bold', color: '#fff' }}>
+                        Diensten
+                    </h4>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                        <li><Link href="/strategie" style={{ color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color='#fff'} onMouseLeave={(e) => e.target.style.color='#aaa'}>Social media strategie</Link></li>
+                        <li><Link href="/content" style={{ color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color='#fff'} onMouseLeave={(e) => e.target.style.color='#aaa'}>Content creatie</Link></li>
+                        <li><Link href="/promotie" style={{ color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color='#fff'} onMouseLeave={(e) => e.target.style.color='#aaa'}>Branding / Promotie</Link></li>
                     </ul>
                 </div>
 
-                {/* Col 3: Informatie */}
+                {/* Kolom 2: Informatie */}
                 <div>
-                    <h2 style={{fontSize: '0.9rem', textTransform: 'uppercase', marginBottom: '1.5rem', letterSpacing: '1px', color: '#D2B48C'}}>Informatie</h2>
-                    <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem'}}>
-                        <li><Link href="/over-ons" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s'}}>Over ons</Link></li>
+                    <h4 style={{ fontFamily: 'var(--font-montserrat)', fontSize: '1.2rem', marginBottom: '1.5rem', fontWeight: 'bold', color: '#fff' }}>
+                        Informatie
+                    </h4>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                        <li><Link href="/over-ons" style={{ color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color='#fff'} onMouseLeave={(e) => e.target.style.color='#aaa'}>Over ons</Link></li>
+                        <li><Link href="/contact" style={{ color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color='#fff'} onMouseLeave={(e) => e.target.style.color='#aaa'}>Contact</Link></li>
+                        <li><a href="/yomarra-offerte-sectie.pdf" download style={{ color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color='#fff'} onMouseLeave={(e) => e.target.style.color='#aaa'}>Offerte downloaden</a></li>
                     </ul>
                 </div>
-            </div>
 
-            {/* Divider Line */}
-            <div style={{borderTop: '1px solid #333', margin: '3rem 0'}}></div>
-
-            {/* Bottom Row: Socials, Info & Copyright */}
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem'}}>
-                
-                {/* Social Icons */}
-                <div style={{display: 'flex', gap: '1rem'}}>
-                     <a href="https://www.instagram.com/yomarra.co?igsh=MWplOG81eGhsczNh&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Bezoek de Yomarra Instagram" style={{width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #444', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', transition: 'all 0.3s'}}>
-                         <FaInstagram size={18} aria-hidden="true" />
-                     </a>
-                     <a href="https://www.tiktok.com/@yomarra.co?_r=1&_t=ZG-93BQ7kPSGDA" target="_blank" rel="noopener noreferrer" aria-label="Bezoek de Yomarra TikTok" style={{width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #444', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', transition: 'all 0.3s'}}>
-                         <FaTiktok size={16} aria-hidden="true" />
-                     </a>
+                {/* Kolom 3: Social media */}
+                <div>
+                    <h4 style={{ fontFamily: 'var(--font-montserrat)', fontSize: '1.2rem', marginBottom: '1.5rem', fontWeight: 'bold', color: '#fff' }}>
+                        Social media
+                    </h4>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                        <li>
+                            <a href="https://instagram.com/yomarra" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color='#fff'} onMouseLeave={(e) => e.currentTarget.style.color='#aaa'}>
+                                <FaInstagram /> @yomarra
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://tiktok.com/@yomarra" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color='#fff'} onMouseLeave={(e) => e.currentTarget.style.color='#aaa'}>
+                                <FaTiktok /> @yomarra
+                            </a>
+                        </li>
+                    </ul>
                 </div>
 
-                {/* Personal Info & Copyright */}
-                <div style={{color: '#888', fontSize: '0.85rem', textAlign: 'center', lineHeight: '1.6'}}>
-                    <p>Email: <a href="mailto:infoyomarra@gmail.com" style={{color: '#aaa', textDecoration: 'underline'}}>infoyomarra@gmail.com</a> | KVK: 90645561 | Venray, Nederland</p>
-                    <p style={{marginTop: '0.5rem'}}>&copy; 2026 Yomarra. Alle rechten voorbehouden.</p>
-                </div>
             </div>
+
+            {/* Onderste balk (Copyright & Info) */}
+            <div style={{ 
+                borderTop: '1px solid rgba(255,255,255,0.1)', 
+                paddingTop: '2rem', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'center', 
+                textAlign: 'center',
+                gap: '0.5rem',
+                color: '#888', 
+                fontSize: '0.9rem' 
+            }}>
+                <p style={{ margin: 0 }}>
+                    &copy; 2026 Yomarra. Alle rechten voorbehouden. &bull; <a href="mailto:infoyomarra@gmail.com" style={{ color: '#888', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color='#fff'} onMouseLeave={(e) => e.target.style.color='#888'}>infoyomarra@gmail.com</a>
+                </p>
+                <p style={{ margin: 0 }}>
+                    KVK: 90645561 &bull; Venray, Nederland
+                </p>
+            </div>
+
         </div>
     </footer>
   );

@@ -1,4 +1,6 @@
-"use client"; // --- toegevoegd voor button interactie ---
+const fs = require('fs');
+
+const content = `"use client"; // --- toegevoegd voor button interactie ---
 // --- OVER ONS ---
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
@@ -20,14 +22,14 @@ export default function OverOns() {
             Wie is Yomarra?
           </h1>
           <p style={{ fontSize: '1.25rem', lineHeight: '1.8', opacity: 0.95, margin: '0 auto', fontWeight: '400' }}>
-            Yomarra is een social media agency opgeriï¿½cht door Marvin Agyei vanuit Venray. 
-            Geen groot bureau, geen tussenpersonen ï¿½ gewoon directe, persoonlijke aanpak 
+            Yomarra is een social media agency opgericht door Marvin Agyei vanuit Venray. 
+            Geen groot bureau, geen tussenpersonen — gewoon directe, persoonlijke aanpak 
             die werkt. Ik geloof dat elk bedrijf een sterk verhaal heeft. Mijn missie is om dat 
-            verhaal ziï¿½chtbaar te maken voor de mensen die er ï¿½ï¿½cht op zitten te waï¿½chten.
+            verhaal zichtbaar te maken voor de mensen die er écht op zitten te wachten.
           </p>
         </div>
 
-        {/* Bottom Wave to Beige (`#F0E8DC`) */}
+        {/* Bottom Wave to Beige (\`#F0E8DC\`) */}
         <div style={{position: 'absolute', bottom: '-1px', left: 0, width: '100%', zIndex: 1}}>
             <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{display: 'block', width: '100%', height: '80px'}}>
                 <path fill="#F0E8DC" d="M0,50 L1440,0 L1440,100 L0,100 Z"></path>
@@ -45,7 +47,7 @@ export default function OverOns() {
               Waarom Yomarra?
             </h2>
             <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#444' }}>
-              Veel ondernemers weten dat social media belangrijk is ï¿½ maar hebben geen tijd, 
+              Veel ondernemers weten dat social media belangrijk is — maar hebben geen tijd, 
               geen idee hoe, of geen consistentie om het vol te houden. Dat is precies waar 
               Yomarra voor is. Ik neem het volledig uit handen: van de strategie en de content 
               tot de community en de rapportages. Jij blijft ondernemen. Ik zorg voor de groei.
@@ -59,7 +61,7 @@ export default function OverOns() {
             </h2>
             <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#444' }}>
               Geen generieke content, geen copy-paste strategie. Elke klant krijgt een aanpak 
-              op maat ï¿½ gebaseerd op zijn doelgroep, zijn merk en zijn doelen. We starten altijd 
+              op maat — gebaseerd op zijn doelgroep, zijn merk en zijn doelen. We starten altijd 
               met een helderheidsgesprek. Dan volgt een strategie. Dan executie. En elke 
               maand meten we wat werkt en wat beter kan.
             </p>
@@ -97,3 +99,7 @@ export default function OverOns() {
     </main>
   );
 }
+`;
+
+fs.writeFileSync('src/app/over-ons/page.js', content, 'utf8');
+console.log('Over Ons Page successfully overwritten!');
