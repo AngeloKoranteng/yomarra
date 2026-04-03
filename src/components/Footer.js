@@ -3,7 +3,7 @@
 // Dit bestand regelt de footer (onderkant) die op �lke pagina van de website terugkomt.
 
 import Link from 'next/link';
-import { FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaInstagram, FaTiktok, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -69,13 +69,18 @@ export default function Footer() {
                     </h4>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                         <li>
-                            <a href="https://instagram.com/yomarra" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color='#fff'} onMouseLeave={(e) => e.currentTarget.style.color='#aaa'}>
-                                <FaInstagram /> @yomarra
+                            <a href="https://www.linkedin.com/company/yomarra/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color='#fff'} onMouseLeave={(e) => e.currentTarget.style.color='#aaa'}>
+                                <FaLinkedin /> LinkedIn
                             </a>
                         </li>
                         <li>
-                            <a href="https://tiktok.com/@yomarra" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color='#fff'} onMouseLeave={(e) => e.currentTarget.style.color='#aaa'}>
-                                <FaTiktok /> @yomarra
+                            <a href="https://www.tiktok.com/@yomarra.co" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color='#fff'} onMouseLeave={(e) => e.currentTarget.style.color='#aaa'}>
+                                <FaTiktok /> TikTok
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/yomarra.co" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#aaa', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color='#fff'} onMouseLeave={(e) => e.currentTarget.style.color='#aaa'}>
+                                <FaInstagram /> Instagram
                             </a>
                         </li>
                     </ul>

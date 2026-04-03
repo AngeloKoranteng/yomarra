@@ -60,12 +60,12 @@ export default function Home() {
 
         {/* Hero Section */}
         <section id="home" className="hero" style={{ position: 'relative', background: "url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat", minHeight: '90vh', display: 'flex', alignItems: 'center', paddingTop: '4rem' }}>
-            <div className="hero-overlay" style={{ position: 'absolute', inset: 0, background: 'rgba(17,17,17,0.55)' }}></div>
-            <div className="hero-content" style={{ position: 'relative', zIndex: 2, maxWidth: '700px', margin: '0 auto', padding: '40px 24px', color: '#fff', textAlign: 'center' }}>
-                <span className="badge" style={{ display: 'inline-block', background: '#8B3A0F', color: '#fff', padding: '6px 16px', borderRadius: '20px', fontSize: '14px', marginBottom: '20px', fontWeight: 'bold' }}>★ 5/5 — Altijd impact</span>
-                <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', lineHeight: '1.2', marginBottom: '20px', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold' }}>Social media hoeft niet<br/>ingewikkeld te zijn.</h1>
-                <p style={{ fontSize: '1.2rem', opacity: 0.9, marginBottom: '32px', lineHeight: '1.6' }}>Yomarra helpt jouw bedrijf groeien met pakkende content, een duidelijke strategie en meetbare impact.</p>
-                <div className="hero-buttons" style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+                <div className="hero-overlay" style={{ position: 'absolute', inset: 0, background: 'rgba(17,17,17,0.7)', backdropFilter: 'blur(5px)', WebkitBackdropFilter: 'blur(5px)' }}></div>
+            <div className="hero-content" style={{ position: 'relative', zIndex: 2, maxWidth: '700px', margin: '0 auto', padding: '40px 24px', color: '#fff', textAlign: 'center', textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
+                <span className="badge" style={{ display: 'inline-block', background: '#8B3A0F', color: '#fff', padding: '6px 16px', borderRadius: '20px', fontSize: '14px', marginBottom: '20px', fontWeight: 'bold', textShadow: 'none', boxShadow: '0 4px 6px rgba(0,0,0,0.3)' }}>★ 5/5 — Altijd impact</span>
+                <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', lineHeight: '1.2', marginBottom: '20px', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold', color: '#ffffff' }}>Social media hoeft niet<br/>ingewikkeld te zijn.</h1>
+                <p style={{ fontSize: '1.2rem', opacity: 1, marginBottom: '32px', lineHeight: '1.6', color: '#ffffff', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Yomarra helpt jouw bedrijf groeien met pakkende content, een duidelijke strategie en meetbare impact.</p>
+                <div className="hero-buttons" style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', textShadow: 'none' }}>
                     <Link href="/contact" className="btn-primary" style={{ background: '#8B3A0F', color: '#fff', padding: '14px 28px', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold', display: 'inline-block', transition: 'opacity 0.3s' }}>Neem contact op &rarr;</Link>
                     <Link href="/diensten" className="btn-secondary" style={{ border: '2px solid #fff', color: '#fff', padding: '12px 26px', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold', display: 'inline-block', backgroundColor: 'transparent', transition: 'background 0.3s' }}>Bekijk onze diensten</Link>
                 </div>
