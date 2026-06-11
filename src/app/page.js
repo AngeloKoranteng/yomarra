@@ -204,89 +204,111 @@ export default function Home() {
         </section>
 
         {/* Pricing / Packages Section */}
-        <section id="pricing" style={{backgroundColor: '#F2E6D8', padding: '6rem 0', position: 'relative'}}>
-            {/* Top Wave from White to Beige */}
-            <div style={{position: 'absolute', top: '-1px', left: 0, width: '100%', zIndex: 1}}>
-                <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{display: 'block', width: '100%', height: '80px', transform: 'scaleY(-1)'}}>
+        <section id="pricing" style={{ backgroundColor: '#F3E7D9', padding: '6rem 0', position: 'relative' }}>
+            <div style={{ position: 'absolute', top: '-1px', left: 0, width: '100%', zIndex: 1 }}>
+                <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '80px', transform: 'scaleY(-1)' }}>
                     <path fill="#ffffff" d="M0,50 L1440,0 L1440,100 L0,100 Z"></path>
                 </svg>
             </div>
 
-            <div className="container" style={{position: 'relative', zIndex: 2, marginTop: '2rem'}}>
-                <div style={{textAlign: 'center', marginBottom: '4rem'}}>
-                    <h2 style={{fontFamily: 'var(--font-montserrat)', color: '#111', fontSize: '3rem', fontWeight: 'bold'}}>Kies jouw pakket</h2>
-                    <p style={{color: '#555', maxWidth: '600px', margin: '0 auto', marginBottom: '2rem'}}>Transparante prijzen, maximale impact. Alle prijzen zijn exclusief btw.</p>
-                    <div style={{display: 'flex', justifyContent: 'center'}}>
-                        <a href="/yomarra-offerte-sectie.pdf" download style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', backgroundColor: '#1A1110', padding: '1rem 2rem', borderRadius: '10px', color: '#FDFAF6', textDecoration: 'none', transition: '0.3s', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 8px 20px rgba(0,0,0,0.15)' }}>
-                            <FaFilePdf style={{ fontSize: '1.8rem', color: '#C27A55' }} /> 
+            <div className="container" style={{ position: 'relative', zIndex: 2, marginTop: '2rem' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                    <p style={{ color: '#8F431C', letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.8rem', fontWeight: '700', marginBottom: '1rem' }}>
+                        Pakketten
+                    </p>
+                    <h2 style={{ fontFamily: 'var(--font-montserrat)', color: '#111', fontSize: 'clamp(2.3rem, 5vw, 3.5rem)', fontWeight: '800', marginBottom: '1rem' }}>
+                        Kies jouw pakket.
+                    </h2>
+                    <p style={{ color: '#555', maxWidth: '620px', margin: '0 auto 2rem', lineHeight: '1.8' }}>
+                        Transparante prijzen, maximale impact. Klik op een pakket voor extra details, precies zoals in de zip-versie.
+                    </p>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <a href="/yomarra-offerte-sectie.pdf" download style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', backgroundColor: '#1A1110', padding: '1rem 2rem', borderRadius: '999px', color: '#FDFAF6', textDecoration: 'none', transition: '0.3s', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 8px 20px rgba(0,0,0,0.15)' }}>
+                            <FaFilePdf style={{ fontSize: '1.8rem', color: '#C27A55' }} />
                             <div style={{ textAlign: 'left' }}>
-                                <div style={{ fontWeight: 'bold', fontSize: '1.1rem', color: '#FDFAF6' }}>Download Offerte</div>
-                                <div style={{ fontSize: '0.85rem', color: 'rgba(253,250,246,0.6)', marginTop: '0.2rem' }}>Bekijk de uitgebreide pakket specificaties</div>
+                                <div style={{ fontWeight: 'bold', fontSize: '1.05rem', color: '#FDFAF6' }}>Download Offerte</div>
+                                <div style={{ fontSize: '0.85rem', color: 'rgba(253,250,246,0.65)', marginTop: '0.2rem' }}>Bekijk de uitgebreide pakket specificaties</div>
                             </div>
                         </a>
                     </div>
                 </div>
 
-                                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', maxWidth: '1100px', margin: '0 auto', alignItems: 'stretch'}}>
-                    
-                    {/* START */}
-                    <div style={{ backgroundColor: '#fff9f4', border: '1px solid rgba(122,46,18,0.12)', padding: '2.5rem 2rem', position: 'relative', overflow: 'hidden', borderTop: '4px solid #7A2E12', borderRadius: '8px' }}>
-                        <div style={{ fontSize: '0.68rem', letterSpacing: '3px', color: '#C27A55', marginBottom: '0.5rem', textTransform: 'uppercase' }}>01</div>
-                        <div style={{ fontFamily: 'var(--font-playfair-display)', fontSize: '2.6rem', color: '#1A1110', lineHeight: 1, marginBottom: '0.4rem', fontWeight: 'bold' }}>START</div>
-                        <div style={{ fontSize: '0.85rem', color: '#8C7B6E', fontStyle: 'italic', marginBottom: '1.5rem' }}>De fundering van een serieus merk</div>
-                        <div style={{ marginBottom: '0.3rem' }}>
-                            <span style={{ fontFamily: 'var(--font-playfair-display)', fontSize: '2.4rem', color: '#7A2E12', lineHeight: 1, fontWeight: 'bold' }}>€250</span>
-                            <span style={{ fontSize: '0.8rem', color: '#8C7B6E' }}> eenmalig</span>
-                        </div>
-                        <div style={{ fontSize: '0.75rem', color: '#8C7B6E', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1.8rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(122,46,18,0.1)' }}>Looptijd: 1 – 2 maanden</div>
-                        <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Branding analyse & positionering</li>
-                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Merkidentiteit & tone of voice</li>
-                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Contentstrategie & pilaren</li>
-                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Hooks, captions & Canva templates</li>
-                        </ul>
-                        <Link href="/contact?plan=start" style={{ display: 'block', textAlign: 'center', padding: '0.85rem', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', border: '1.5px solid #7A2E12', color: '#7A2E12', background: 'transparent' }}>Aanvragen</Link>
-                    </div>
-
-                    {/* GROEI */}
-                    <div style={{ backgroundColor: '#7A2E12', border: '1px solid #7A2E12', padding: '2.5rem 2rem', position: 'relative', overflow: 'hidden', borderTop: '4px solid #C27A55', boxShadow: '0 20px 50px rgba(122,46,18,0.3)', borderRadius: '8px' }}>
-                        <div style={{ position: 'absolute', top: '1.2rem', right: '1.2rem', background: '#FDFAF6', color: '#7A2E12', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', padding: '0.25rem 0.7rem' }}>Meest gekozen</div>
-                        <div style={{ fontSize: '0.68rem', letterSpacing: '3px', color: 'rgba(253,250,246,0.5)', marginBottom: '0.5rem', textTransform: 'uppercase' }}>02</div>
-                        <div style={{ fontFamily: 'var(--font-playfair-display)', fontSize: '2.6rem', color: '#FDFAF6', lineHeight: 1, marginBottom: '0.4rem', fontWeight: 'bold' }}>GROEI</div>
-                        <div style={{ fontSize: '0.85rem', color: 'rgba(253,250,246,0.6)', fontStyle: 'italic', marginBottom: '1.5rem' }}>Bereik omzetten in klanten</div>
-                        <div style={{ marginBottom: '0.3rem' }}>
-                            <span style={{ fontFamily: 'var(--font-playfair-display)', fontSize: '2.4rem', color: '#FDFAF6', lineHeight: 1, fontWeight: 'bold' }}>€499</span>
-                            <span style={{ fontSize: '0.8rem', color: 'rgba(253,250,246,0.55)' }}> / maand</span>
-                        </div>
-                        <div style={{ fontSize: '0.75rem', color: 'rgba(253,250,246,0.4)', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1.8rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(253,250,246,0.1)' }}>Looptijd: 3 of 6 maanden</div>
-                        <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                            <li style={{ fontSize: '0.9rem', color: 'rgba(253,250,246,0.8)', display: 'flex', gap: '0.6rem' }}><span style={{ color: 'rgba(253,250,246,0.7)', fontWeight: 700 }}>✓</span> Reels & TikTok strategie</li>
-                            <li style={{ fontSize: '0.9rem', color: 'rgba(253,250,246,0.8)', display: 'flex', gap: '0.6rem' }}><span style={{ color: 'rgba(253,250,246,0.7)', fontWeight: 700 }}>✓</span> Actief community management</li>
-                            <li style={{ fontSize: '0.9rem', color: 'rgba(253,250,246,0.8)', display: 'flex', gap: '0.6rem' }}><span style={{ color: 'rgba(253,250,246,0.7)', fontWeight: 700 }}>✓</span> DM → gesprek → deal systeem</li>
-                            <li style={{ fontSize: '0.9rem', color: 'rgba(253,250,246,0.8)', display: 'flex', gap: '0.6rem' }}><span style={{ color: 'rgba(253,250,246,0.7)', fontWeight: 700 }}>✓</span> Maandelijkse rapportage</li>
-                        </ul>
-                        <Link href="/contact?plan=groei" style={{ display: 'block', textAlign: 'center', padding: '0.85rem', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', background: '#FDFAF6', color: '#7A2E12', border: '1.5px solid #FDFAF6' }}>Start nu →</Link>
-                    </div>
-
-                    {/* ALL-IN */}
-                    <div style={{ backgroundColor: '#fff9f4', border: '1px solid rgba(122,46,18,0.12)', padding: '2.5rem 2rem', position: 'relative', overflow: 'hidden', borderTop: '4px solid #7A2E12', borderRadius: '8px' }}>
-                        <div style={{ fontSize: '0.68rem', letterSpacing: '3px', color: '#C27A55', marginBottom: '0.5rem', textTransform: 'uppercase' }}>03</div>
-                        <div style={{ fontFamily: 'var(--font-playfair-display)', fontSize: '2.6rem', color: '#1A1110', lineHeight: 1, marginBottom: '0.4rem', fontWeight: 'bold' }}>ALL-IN</div>
-                        <div style={{ fontSize: '0.85rem', color: '#8C7B6E', fontStyle: 'italic', marginBottom: '1.5rem' }}>Volledige overname</div>
-                        <div style={{ marginBottom: '0.3rem' }}>
-                            <span style={{ fontFamily: 'var(--font-playfair-display)', fontSize: '2.4rem', color: '#7A2E12', lineHeight: 1, fontWeight: 'bold' }}>€1.000</span>
-                            <span style={{ fontSize: '0.8rem', color: '#8C7B6E' }}> / maand</span>
-                        </div>
-                        <div style={{ fontSize: '0.75rem', color: '#8C7B6E', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1.8rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(122,46,18,0.1)' }}>Minimaal 6 maanden</div>
-                        <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Alles van START + GROEI</li>
-                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Volledige contentplanning</li>
-                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Lead kwalificatie & opvolging</li>
-                            <li style={{ fontSize: '0.9rem', color: '#5a4035', display: 'flex', gap: '0.6rem' }}><span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> Prioriteit support & check-ins</li>
-                        </ul>
-                        <Link href="/contact?plan=all-in" style={{ display: 'block', textAlign: 'center', padding: '0.85rem', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', border: '1.5px solid #7A2E12', color: '#7A2E12', background: 'transparent' }}>Aanvragen</Link>
-                    </div>
-
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', maxWidth: '1100px', margin: '0 auto', alignItems: 'stretch' }}>
+                    {[
+                        {
+                            number: '01',
+                            title: 'START',
+                            price: '€250',
+                            priceLabel: 'eenmalig',
+                            period: 'Looptijd: 1 - 2 maanden',
+                            image: 'https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&w=1200&q=80',
+                            summary: 'De fundering van een serieus merk.',
+                            details: ['Branding analyse & positionering', 'Merkidentiteit & tone of voice', 'Contentstrategie & pilaren', 'Hooks, captions & templates'],
+                            href: '/contact?plan=start',
+                            cta: 'Aanvragen',
+                            accent: '#7A2E12',
+                            open: false,
+                        },
+                        {
+                            number: '02',
+                            title: 'GROEI',
+                            price: '€499',
+                            priceLabel: '/ maand',
+                            period: 'Looptijd: 3 of 6 maanden',
+                            image: 'https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80',
+                            summary: 'Bereik omzetten in klanten.',
+                            details: ['Reels & TikTok strategie', 'Actief community management', 'DM -> gesprek -> deal systeem', 'Maandelijkse rapportage'],
+                            href: '/contact?plan=groei',
+                            cta: 'Start nu',
+                            accent: '#8F431C',
+                            open: true,
+                        },
+                        {
+                            number: '03',
+                            title: 'ALL-IN',
+                            price: '€1.000',
+                            priceLabel: '/ maand',
+                            period: 'Minimaal 6 maanden',
+                            image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
+                            summary: 'Volledige overname van social media.',
+                            details: ['Alles van START + GROEI', 'Volledige contentplanning', 'Lead kwalificatie & opvolging', 'Prioriteit support & check-ins'],
+                            href: '/contact?plan=all-in',
+                            cta: 'Aanvragen',
+                            accent: '#7A2E12',
+                            open: false,
+                        },
+                    ].map((pkg) => (
+                        <details key={pkg.title} open={pkg.open} style={{ backgroundColor: '#fff9f4', border: '1px solid rgba(122,46,18,0.12)', borderTop: `4px solid ${pkg.accent}`, borderRadius: '20px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
+                            <summary style={{ listStyle: 'none', cursor: 'pointer', padding: '1.5rem 1.5rem 1rem', outline: 'none' }}>
+                                <div style={{ width: '100%', height: '180px', position: 'relative', marginBottom: '1.25rem', borderRadius: '16px', overflow: 'hidden' }}>
+                                    <img src={pkg.image} alt={pkg.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                                </div>
+                                <div style={{ fontSize: '0.68rem', letterSpacing: '3px', color: '#C27A55', marginBottom: '0.5rem', textTransform: 'uppercase' }}>{pkg.number}</div>
+                                <div style={{ fontFamily: 'var(--font-montserrat)', fontSize: '2.2rem', color: '#1A1110', lineHeight: 1, marginBottom: '0.4rem', fontWeight: 'bold' }}>{pkg.title}</div>
+                                <div style={{ fontSize: '0.85rem', color: '#8C7B6E', fontStyle: 'italic', marginBottom: '1rem' }}>{pkg.summary}</div>
+                                <div style={{ marginBottom: '0.3rem' }}>
+                                    <span style={{ fontFamily: 'var(--font-montserrat)', fontSize: '2.1rem', color: '#7A2E12', lineHeight: 1, fontWeight: 'bold' }}>{pkg.price}</span>
+                                    <span style={{ fontSize: '0.8rem', color: '#8C7B6E', marginLeft: '0.35rem' }}>{pkg.priceLabel}</span>
+                                </div>
+                                <div style={{ fontSize: '0.75rem', color: '#8C7B6E', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1rem' }}>{pkg.period}</div>
+                                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: '#8F431C', fontWeight: 700 }}>
+                                    Bekijk details <FaArrowRight fontSize="0.85rem" />
+                                </span>
+                            </summary>
+                            <div style={{ padding: '0 1.5rem 1.5rem', borderTop: '1px solid rgba(122,46,18,0.1)' }}>
+                                <ul style={{ listStyle: 'none', padding: 0, margin: '1rem 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                                    {pkg.details.map((item) => (
+                                        <li key={item} style={{ fontSize: '0.95rem', color: '#5a4035', display: 'flex', gap: '0.6rem', lineHeight: 1.5 }}>
+                                            <span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <Link href={pkg.href} style={{ display: 'block', textAlign: 'center', padding: '0.95rem', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', borderRadius: '999px', border: `1.5px solid ${pkg.accent}`, color: pkg.accent, background: 'transparent' }}>
+                                    {pkg.cta}
+                                </Link>
+                            </div>
+                        </details>
+                    ))}
                 </div>
             </div>
         </section>
