@@ -1,97 +1,167 @@
-"use client"; // --- toegevoegd voor button interactie ---
-// --- OVER ONS ---
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 
 export default function OverOns() {
   return (
-    <main style={{backgroundColor: '#F0E8DC', color: '#1A1A1A', paddingBottom: '6rem', overflowX: 'hidden', minHeight: '100vh'}}>
-      
-      {/* Header Section */}
-      <section style={{
-        backgroundColor: '#8B3A0F', 
-        padding: '8rem 2rem 5rem', 
-        textAlign: 'center', 
-        color: '#FDFAF6',
-        position: 'relative'
-      }}>
-        <div className="container" style={{ maxWidth: '850px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontFamily: 'var(--font-montserrat)', marginBottom: '2rem', fontWeight: 'bold' }}>
-            Wie is Yomarra?
-          </h1>
-          <p style={{ fontSize: '1.25rem', lineHeight: '1.8', opacity: 0.95, margin: '0 auto', fontWeight: '400' }}>
-            Yomarra is een social media agency opgeri�cht door Marvin Agyei vanuit Venray. 
-            Geen groot bureau, geen tussenpersonen � gewoon directe, persoonlijke aanpak 
-            die werkt. Ik geloof dat elk bedrijf een sterk verhaal heeft. Mijn missie is om dat 
-            verhaal zi�chtbaar te maken voor de mensen die er ��cht op zitten te wa�chten.
-          </p>
-        </div>
+    <main style={{ backgroundColor: '#F0E8DC', color: '#211611', overflowX: 'hidden' }}>
+      <section style={{ padding: '6.5rem 0 4rem' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: '4rem', alignItems: 'center' }}>
+          <div>
+            <div style={{
+              width: '100%',
+              aspectRatio: '4 / 5',
+              borderRadius: '220px 220px 20px 20px',
+              overflow: 'hidden',
+              boxShadow: '0 24px 60px -18px rgba(33,22,17,.22)',
+              border: '1px solid rgba(139,58,15,.18)'
+            }}>
+              <img
+                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=900&q=80&auto=format&fit=crop"
+                alt="Marvin Agyei, oprichter van Yomarra"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+          </div>
 
-        {/* Bottom Wave to Beige (`#F0E8DC`) */}
-        <div style={{position: 'absolute', bottom: '-1px', left: 0, width: '100%', zIndex: 1}}>
-            <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{display: 'block', width: '100%', height: '80px'}}>
-                <path fill="#F0E8DC" d="M0,50 L1440,0 L1440,100 L0,100 Z"></path>
-            </svg>
+          <div>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '12px',
+              fontSize: '.74rem',
+              fontWeight: 700,
+              letterSpacing: '.26em',
+              textTransform: 'uppercase',
+              color: '#8B3A0F',
+              marginBottom: '1.25rem'
+            }}>
+              <span style={{ width: '34px', height: '1.5px', background: '#8B3A0F' }} />
+              Over ons
+            </div>
+
+            <h1 style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', lineHeight: 1.02, marginBottom: '1.4rem', fontFamily: 'var(--font-montserrat)' }}>
+              Wie is <em style={{ fontFamily: 'var(--font-dancing-script)', fontStyle: 'italic', color: '#8B3A0F' }}>Yomarra?</em>
+            </h1>
+
+            <p style={{ fontSize: '1.08rem', lineHeight: 1.8, color: '#6B6258', marginBottom: '1.4rem', maxWidth: '700px' }}>
+              <strong style={{ color: '#211611' }}>Yomarra is het social media agency van Marvin Agyei, opgericht vanuit Venray.</strong> Geen groot bureau, geen tussenpersonen, geen accountmanagers - je werkt direct samen met de persoon die jouw merk laat groeien.
+            </p>
+
+            <p style={{ fontSize: '1.08rem', lineHeight: 1.8, color: '#6B6258', marginBottom: '1.4rem', maxWidth: '700px' }}>
+              Ik geloof dat elk bedrijf een sterk verhaal heeft. Mijn missie is om dat verhaal zichtbaar te maken voor de mensen die er echt op zitten te wachten. Niet met generieke content, maar met een aanpak op maat: jouw doelgroep, jouw merk, jouw doelen.
+            </p>
+
+            <p style={{ fontSize: '1.08rem', lineHeight: 1.8, color: '#6B6258', marginBottom: '2rem', maxWidth: '700px' }}>
+              Veel ondernemers weten dat social media belangrijk is, maar hebben geen tijd, geen richting of geen consistentie om het vol te houden. Dat is precies waar Yomarra voor is. Ik neem het volledig uit handen: van strategie en content tot community en rapportages. <strong style={{ color: '#211611' }}>Jij blijft ondernemen. Ik zorg voor de groei.</strong>
+            </p>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+              <Link href="/contact" style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                background: '#8B3A0F',
+                color: '#fff',
+                padding: '16px 32px',
+                borderRadius: '999px',
+                fontWeight: 600,
+                textDecoration: 'none',
+                boxShadow: '0 10px 24px -10px rgba(139,58,15,.55)'
+              }}>
+                Plan een gesprek <FaArrowRight />
+              </Link>
+              <Link href="/diensten" style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                border: '1.5px solid #211611',
+                color: '#211611',
+                padding: '16px 32px',
+                borderRadius: '999px',
+                fontWeight: 600,
+                textDecoration: 'none'
+              }}>
+                Bekijk de diensten
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Content Sections */}
-      <section style={{ padding: '6rem 2rem 2rem' }}>
-        <div className="container" style={{ maxWidth: '850px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-          
-          {/* Waarom Yomarra */}
-          <div style={{ backgroundColor: '#fff', padding: '4rem 3rem', borderRadius: '24px', boxShadow: '0 10px 30px rgba(139,58,15,0.05)', border: '1px solid rgba(139,58,15,0.1)' }}>
-            <h2 style={{ fontSize: '2.2rem', fontFamily: 'var(--font-montserrat)', color: '#1A1A1A', marginBottom: '1.5rem', fontWeight: 'bold' }}>
-              Waarom Yomarra?
-            </h2>
-            <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#444' }}>
-              Veel ondernemers weten dat social media belangrijk is � maar hebben geen tijd, 
-              geen idee hoe, of geen consistentie om het vol te houden. Dat is precies waar 
-              Yomarra voor is. Ik neem het volledig uit handen: van de strategie en de content 
-              tot de community en de rapportages. Jij blijft ondernemen. Ik zorg voor de groei.
-            </p>
-          </div>
-
-          {/* Mijn aanpak */}
-          <div style={{ backgroundColor: '#fff', padding: '4rem 3rem', borderRadius: '24px', boxShadow: '0 10px 30px rgba(139,58,15,0.05)', border: '1px solid rgba(139,58,15,0.1)' }}>
-            <h2 style={{ fontSize: '2.2rem', fontFamily: 'var(--font-montserrat)', color: '#1A1A1A', marginBottom: '1.5rem', fontWeight: 'bold' }}>
+      <section style={{ background: '#FBF7F0', borderTop: '1px solid rgba(33,22,17,.12)', borderBottom: '1px solid rgba(33,22,17,.12)' }}>
+        <div className="container" style={{ padding: '5.5rem 0' }}>
+          <div style={{ maxWidth: '760px', marginBottom: '3rem' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '12px',
+              fontSize: '.74rem',
+              fontWeight: 700,
+              letterSpacing: '.26em',
+              textTransform: 'uppercase',
+              color: '#8B3A0F',
+              marginBottom: '1.25rem'
+            }}>
+              <span style={{ width: '34px', height: '1.5px', background: '#8B3A0F' }} />
               Mijn aanpak
+            </div>
+            <h2 style={{ fontSize: 'clamp(2.1rem, 4.5vw, 3.4rem)', lineHeight: 1.05, marginBottom: '1rem' }}>
+              Waarom ondernemers voor <em style={{ fontFamily: 'var(--font-dancing-script)', fontStyle: 'italic', color: '#8B3A0F' }}>Yomarra</em> kiezen.
             </h2>
-            <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#444' }}>
-              Geen generieke content, geen copy-paste strategie. Elke klant krijgt een aanpak 
-              op maat � gebaseerd op zijn doelgroep, zijn merk en zijn doelen. We starten altijd 
-              met een helderheidsgesprek. Dan volgt een strategie. Dan executie. En elke 
-              maand meten we wat werkt en wat beter kan.
-            </p>
           </div>
 
-          {/* Slotquote & CTA */}
-          <div style={{ textAlign: 'center', marginTop: '4rem', padding: '2rem' }}>
-            <h3 style={{ fontSize: '2.5rem', fontFamily: 'var(--font-dancing-script)', color: '#8B3A0F', marginBottom: '3rem', fontStyle: 'italic' }}>
-              "Social media hoeft niet ingewikkeld te zijn."
-            </h3>
-            
-            <Link href="/contact" style={{ 
-                display: 'inline-flex', 
-                alignItems: 'center',
-                gap: '0.8rem',
-                backgroundColor: '#8B3A0F', 
-                color: '#fff', 
-                padding: '1.2rem 3rem', 
-                borderRadius: '12px', 
-                fontSize: '1.1rem', 
-                fontWeight: 'bold', 
-                textDecoration: 'none', 
-                boxShadow: '0 8px 20px rgba(139, 58, 15, 0.25)',
-                transition: 'transform 0.2s ease, box-shadow 0.2s ease'
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 12px 25px rgba(139, 58, 15, 0.35)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 20px rgba(139, 58, 15, 0.25)'; }}
-            >
-              Plan een gesprek <FaArrowRight />
-            </Link>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: 'rgba(33,22,17,.12)', borderRadius: '20px', overflow: 'hidden' }}>
+            {[
+              {
+                nr: '— 01',
+                title: 'Direct & persoonlijk',
+                text: 'Korte lijnen, snelle reacties en één vast aanspreekpunt. Je praat met de maker, niet met een tussenlaag.'
+              },
+              {
+                nr: '— 02',
+                title: 'Op maat, nooit copy-paste',
+                text: 'Elke klant krijgt een eigen strategie. We starten met een helderheidsgesprek, dan strategie, dan executie.'
+              },
+              {
+                nr: '— 03',
+                title: 'Meetbaar resultaat',
+                text: 'Elke maand meten we wat werkt en wat beter kan: bereik, engagement en leads. Geen vage beloftes, maar cijfers.'
+              }
+            ].map((item) => (
+              <div key={item.nr} style={{ background: '#FBF7F0', padding: '2.5rem 2rem' }}>
+                <div style={{ fontFamily: 'var(--font-dancing-script)', fontStyle: 'italic', fontSize: '1rem', color: '#D9A06B', marginBottom: '14px' }}>
+                  {item.nr}
+                </div>
+                <h3 style={{ fontFamily: 'var(--font-montserrat)', fontSize: '1.2rem', marginBottom: '12px' }}>{item.title}</h3>
+                <p style={{ color: '#6B6258', fontSize: '.97rem', lineHeight: 1.7, margin: 0 }}>{item.text}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
+      <section style={{ padding: '5.5rem 0 6rem' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <h2 style={{ fontFamily: 'var(--font-dancing-script)', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontStyle: 'italic', color: '#8B3A0F', marginBottom: '1rem' }}>
+            "Social media hoeft niet ingewikkeld te zijn."
+          </h2>
+          <p style={{ color: '#6B6258', fontSize: '1.05rem', marginBottom: '2rem' }}>
+            Benieuwd wat dat voor jouw bedrijf betekent? Het eerste gesprek is altijd gratis.
+          </p>
+          <Link href="/contact" style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '10px',
+            background: '#FBF7F0',
+            color: '#8B3A0F',
+            border: '1.5px solid #8B3A0F',
+            padding: '16px 32px',
+            borderRadius: '999px',
+            fontWeight: 600,
+            textDecoration: 'none'
+          }}>
+            Plan een gesprek <FaArrowRight />
+          </Link>
         </div>
       </section>
     </main>

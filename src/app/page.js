@@ -1,321 +1,520 @@
-﻿// --- HOMEPAGE CODE ---
-// Dit bestand bouwt de hele beginpagina van de website.
-// We laden hier afbeeldingen, kaders en testjes in om deze te tonen.
+import Link from 'next/link';
+import { FaArrowRight, FaCheckCircle, FaPlus, FaLaptop, FaBullseye, FaComments } from 'react-icons/fa';
 
-import Image from "next/image";
-import ContactForm from "../components/ContactForm";
-import Link from "next/link";
-import { FaArrowRight, FaStar, FaChartLine, FaCheckCircle, FaLaptop, FaBullseye, FaComments, FaBullhorn, FaMobileAlt, FaCamera, FaUserFriends, FaFilePdf } from 'react-icons/fa';
-// Global styles are imported in layout.js
+const services = [
+  {
+    number: '01',
+    title: 'Wat Yomarra doet',
+    description: 'Wij nemen het volledige proces uit handen: van strategie tot creatie en publicatie. We helpen jouw merk groeien met doordachte content.',
+    href: '/over-ons',
+    icon: FaLaptop,
+    accent: '#F7CF4D',
+  },
+  {
+    number: '02',
+    title: 'Mijn visie',
+    description: 'Elk bedrijf moet zijn unieke verhaal laten voelen. Merken moeten dominant zichtbaar zijn voor de juiste doelgroep en impact maken.',
+    href: '/over-ons',
+    icon: FaBullseye,
+    accent: '#8EA0FF',
+  },
+  {
+    number: '03',
+    title: 'Wat krijg je?',
+    description: 'Persoonlijke aandacht, creatieve concepten die opvallen, en meetbare resultaten gericht op conversie en constante groei.',
+    href: '/diensten',
+    icon: FaComments,
+    accent: '#FF9A75',
+  },
+];
 
-// Dit is het hoofdblok (functie) die alle onderdelen van de Homepage verzamelt.
+const packages = [
+  {
+    number: '01',
+    title: 'START',
+    price: '€250',
+    priceMeta: 'eenmalig',
+    period: 'Looptijd: 1 - 2 maanden',
+    image: '/IMG_2836.png',
+    summary: 'De fundering van een serieus merk',
+    details: ['Branding analyse & positionering', 'Merkidentiteit & tone of voice', 'Contentstrategie & pilaren', 'Hooks, captions & Canva templates'],
+    href: '/contact?plan=start',
+  },
+  {
+    number: '02',
+    title: 'GROEI',
+    price: '€499',
+    priceMeta: '/ maand',
+    period: 'Looptijd: 3 of 6 maanden',
+    image: '/Homepagina.jpeg',
+    summary: 'Bereik omzetten in klanten',
+    details: ['Reels & TikTok strategie', 'Actief community management', 'DM → gesprek → deal systeem', 'Maandelijkse rapportage'],
+    href: '/contact?plan=groei',
+    popular: true,
+  },
+  {
+    number: '03',
+    title: 'ALL-IN',
+    price: '€1.000',
+    priceMeta: '/ maand',
+    period: 'Minimaal 6 maanden',
+    image: '/IMG_2836.png',
+    summary: 'Volledige overname',
+    details: ['Alles van START + GROEI', 'Volledige contentplanning', 'Lead kwalificatie & opvolging', 'Prioriteit support & check-ins'],
+    href: '/contact?plan=all-in',
+  },
+];
+
 export default function Home() {
-  
-  // Wat hieronder in de -return- staat, is grofweg de HTML (visuele blokken) die op het scherm verschijnt.
   return (
-    <main style={{position: 'relative', overflowX: 'hidden'}}>
-        {/* Style block for animations */}
-        <style dangerouslySetInnerHTML={{__html: `
-          .floating-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-          }
-          .floating-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-          }
-          .price-card {
-            transition: transform 0.3s ease, border-color 0.3s ease;
-          }
-          .price-card:hover {
-            transform: translateY(-15px);
-            border-color: #8B4513;
-          }
-          .price-card-popular {
-            transform: scale(1);
-            z-index: 10;
-          }
-          @media (min-width: 992px) {
-            .price-card-popular {
-              transform: scale(1.05);
-            }
-          }
-          .emoticon-link {
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex: 1;
-            min-width: 120px;
-          }
-          .emoticon-link:hover {
-            transform: translateY(-8px);
-          }
-          .emoticon-link:hover .icon-box {
-            background-color: #8B4513 !important;
-            color: #F2E6D8 !important;
-            box-shadow: 0 12px 24px rgba(139, 69, 19, 0.2) !important;
-          }
-        `}} />
+    <main className="home-page">
+      <style dangerouslySetInnerHTML={{ __html: `
+        .home-page {
+          background: #F2E8DA;
+          color: #191513;
+          overflow-x: hidden;
+        }
+        .shell {
+          width: min(1120px, calc(100% - 3rem));
+          margin: 0 auto;
+        }
+        .eyebrow {
+          display: inline-block;
+          color: #8F431C;
+          letter-spacing: 4px;
+          text-transform: uppercase;
+          font-size: 0.8rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+        .headline {
+          font-family: var(--font-montserrat);
+          font-weight: 800;
+          letter-spacing: -0.05em;
+          line-height: 0.98;
+          color: #191513;
+          margin: 0 0 1.2rem;
+          font-size: clamp(3rem, 7vw, 5rem);
+        }
+        .sub {
+          color: #5B544E;
+          line-height: 1.9;
+          font-size: 1.1rem;
+          margin: 0;
+        }
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.7rem;
+          border-radius: 999px;
+          padding: 1rem 1.4rem;
+          font-weight: 700;
+          text-decoration: none;
+        }
+        .btn-vol {
+          background: #8F431C;
+          color: #fff;
+          box-shadow: 0 10px 22px rgba(143, 67, 28, 0.22);
+        }
+        .btn-lijn {
+          border: 1.5px solid rgba(25, 21, 19, 0.18);
+          color: #191513;
+          background: rgba(255,255,255,0.25);
+        }
+        .btn-wit {
+          background: #F7EFE4;
+          color: #8F431C;
+        }
+        .section-head {
+          text-align: center;
+          margin-bottom: 3rem;
+        }
+        .section-head h2 {
+          font-family: var(--font-montserrat);
+          font-size: clamp(2.2rem, 5vw, 3.6rem);
+          line-height: 1.05;
+          margin: 0 0 1rem;
+        }
+        .section-head p {
+          max-width: 760px;
+          margin: 0 auto;
+          color: #5B544E;
+          line-height: 1.8;
+        }
+        .hero {
+          padding: 2rem 0 0;
+        }
+        .hero-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2.5rem;
+          align-items: center;
+          padding: 4rem 0 3rem;
+        }
+        .hero h1 em,
+        .section-head h2 em,
+        .quote-band em,
+        .cta-band em {
+          font-family: var(--font-dancing-script);
+          font-style: normal;
+          color: #8F431C;
+        }
+        .hero-cta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-top: 2rem;
+        }
+        .hero-visual {
+          position: relative;
+          border-radius: 32px 32px 0 0;
+          overflow: hidden;
+          min-height: 520px;
+          box-shadow: 0 18px 40px rgba(26, 17, 16, 0.12);
+        }
+        .hero-visual img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .hero-badge {
+          position: absolute;
+          left: 1.25rem;
+          bottom: 1.25rem;
+          background: rgba(255,255,255,0.9);
+          padding: 0.9rem 1.1rem;
+          border-radius: 16px;
+          box-shadow: 0 10px 24px rgba(26, 17, 16, 0.14);
+          display: inline-flex;
+          flex-direction: column;
+          gap: 0.15rem;
+        }
+        .trust-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 1rem;
+        }
+        .trust-item {
+          background: rgba(255,255,255,0.72);
+          border: 1px solid rgba(122, 46, 18, 0.08);
+          border-radius: 18px;
+          padding: 1rem 1.1rem;
+          color: #5B544E;
+          box-shadow: 0 10px 24px rgba(26, 17, 16, 0.04);
+        }
+        .trust-item b {
+          display: block;
+          color: #191513;
+          margin-bottom: 0.25rem;
+        }
+        .marquee {
+          overflow: hidden;
+          border-top: 1px solid rgba(122, 46, 18, 0.08);
+          border-bottom: 1px solid rgba(122, 46, 18, 0.08);
+          background: rgba(255,255,255,0.45);
+        }
+        .marquee-track {
+          display: flex;
+          gap: 1rem;
+          white-space: nowrap;
+          padding: 0.95rem 0;
+          animation: slide 28s linear infinite;
+          color: #8F431C;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          font-size: 0.82rem;
+        }
+        .punt { opacity: 0.4; }
+        @keyframes slide {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .service-grid,
+        .steps-grid,
+        .package-grid {
+          display: grid;
+          gap: 1.5rem;
+        }
+        .service-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+        .steps-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        .package-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .service-card,
+        .step,
+        .package,
+        .faq-item {
+          background: #FFFDF8;
+          border-radius: 28px;
+          overflow: hidden;
+          box-shadow: 0 18px 34px rgba(26, 17, 16, 0.08);
+          border: 1px solid rgba(122, 46, 18, 0.08);
+        }
+        .service-card .visual {
+          aspect-ratio: 16 / 10;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          font-size: 3.2rem;
+        }
+        .service-card .inhoud,
+        .package-summary { padding: 1.6rem 1.6rem 1.7rem; }
+        .service-card .nr,
+        .step .nr,
+        .package .nummer {
+          display: inline-block;
+          color: #A85A31;
+          letter-spacing: 2px;
+          font-size: 0.82rem;
+          margin-bottom: 0.8rem;
+        }
+        .service-card h3,
+        .step h3,
+        .package h3,
+        .faq-item summary,
+        .quote-band blockquote,
+        .cta-band h2 {
+          font-family: var(--font-montserrat);
+          letter-spacing: -0.04em;
+        }
+        .service-card h3,
+        .package h3 { font-size: 1.45rem; margin: 0 0 0.7rem; }
+        .service-card p { color: #6B6258; line-height: 1.7; margin: 0; }
+        .link {
+          color: #8F431C;
+          font-weight: 700;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          margin-top: 1rem;
+        }
+        .step { padding: 1.6rem; }
+        .step .nr {
+          font-size: clamp(2.4rem, 5vw, 4rem);
+          color: transparent;
+          -webkit-text-stroke: 1px #A85A31;
+          line-height: 1;
+        }
+        .step p,
+        .package p,
+        .faq-item p,
+        .quote-band cite,
+        .cta-band p { color: #5B544E; line-height: 1.75; }
+        .package { padding: 1.25rem 1.25rem 1.5rem; }
+        .package.popular { border-top: 4px solid #8F431C; transform: translateY(-6px); }
+        .popular-badge {
+          display: inline-flex;
+          margin-bottom: 1rem;
+          background: #8F431C;
+          color: #fff;
+          padding: 0.35rem 0.75rem;
+          border-radius: 999px;
+          font-size: 0.68rem;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+        .package .price {
+          font-size: clamp(2rem, 4vw, 3rem);
+          line-height: 1;
+          color: #7A2E12;
+          margin-bottom: 0.35rem;
+          font-weight: 800;
+          font-family: var(--font-montserrat);
+        }
+        .package .price small { font-size: 0.8rem; color: #8C7B6E; font-weight: 600; }
+        .package .period {
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          padding-bottom: 1rem;
+          margin-bottom: 1rem;
+          border-bottom: 1px solid rgba(122, 46, 18, 0.1);
+          color: #8C7B6E;
+        }
+        .package details { display: block; }
+        .package ul {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 1.5rem;
+          display: grid;
+          gap: 0.65rem;
+        }
+        .package li { display: flex; gap: 0.6rem; align-items: flex-start; line-height: 1.5; }
+        .package li svg { color: #7A2E12; margin-top: 0.2rem; flex-shrink: 0; }
+        .package summary,
+        .faq-item summary {
+          list-style: none;
+          cursor: pointer;
+        }
+        .package summary::-webkit-details-marker,
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-list {
+          display: grid;
+          gap: 1rem;
+          max-width: 760px;
+          margin: 0 auto;
+        }
+        .faq-item summary {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+          padding: 1.1rem 1.25rem;
+          font-weight: 700;
+        }
+        .faq-item p { margin: 0; padding: 0 1.25rem 1.25rem; }
+        .quote-band {
+          background: #1A1615;
+          text-align: center;
+          padding: 5rem 0;
+          margin: 5rem 0;
+        }
+        .quote-band blockquote {
+          color: #F6EEE2;
+          font-size: clamp(2rem, 4vw, 3.5rem);
+          line-height: 1.05;
+          margin: 0 auto 1rem;
+          max-width: 900px;
+        }
+        .cta-band { text-align: center; padding: 0 0 5rem; }
+        .cta-band .box {
+          background: #191513;
+          color: #F6EEE2;
+          border-radius: 28px;
+          padding: 3rem 2rem;
+        }
+        .cta-band h2 {
+          color: #F6EEE2;
+          margin-bottom: 1rem;
+          font-size: clamp(2rem, 4vw, 3.2rem);
+        }
+        .cta-band p { color: rgba(246, 238, 226, 0.72); max-width: 700px; margin: 0 auto 1.75rem; }
+        @media (max-width: 768px) {
+          .hero { padding-top: 1rem; }
+          .hero-visual { min-height: 360px; }
+          .package.popular { transform: none; }
+        }
+      ` }} />
 
-        {/* Hero Section */}
-        <section id="home" className="hero" style={{ position: 'relative', background: "url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat", minHeight: '90vh', display: 'flex', alignItems: 'center', paddingTop: '4rem' }}>
-                <div className="hero-overlay" style={{ position: 'absolute', inset: 0, background: 'rgba(17,17,17,0.7)', backdropFilter: 'blur(5px)', WebkitBackdropFilter: 'blur(5px)' }}></div>
-            <div className="hero-content" style={{ position: 'relative', zIndex: 2, maxWidth: '700px', margin: '0 auto', padding: '40px 24px', color: '#fff', textAlign: 'center', textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
-                <span className="badge" style={{ display: 'inline-block', background: '#8B3A0F', color: '#fff', padding: '6px 16px', borderRadius: '20px', fontSize: '14px', marginBottom: '20px', fontWeight: 'bold', textShadow: 'none', boxShadow: '0 4px 6px rgba(0,0,0,0.3)' }}>★ 5/5 — Altijd impact</span>
-                <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', lineHeight: '1.2', marginBottom: '20px', fontFamily: 'var(--font-montserrat)', fontWeight: 'bold', color: '#ffffff' }}>Social media hoeft niet<br/>ingewikkeld te zijn.</h1>
-                <p style={{ fontSize: '1.2rem', opacity: 1, marginBottom: '32px', lineHeight: '1.6', color: '#ffffff', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Yomarra helpt jouw bedrijf groeien met pakkende content, een duidelijke strategie en meetbare impact.</p>
-                <div className="hero-buttons" style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', textShadow: 'none' }}>
-                    <Link href="/contact" className="btn-primary" style={{ background: '#8B3A0F', color: '#fff', padding: '14px 28px', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold', display: 'inline-block', transition: 'opacity 0.3s' }}>Neem contact op &rarr;</Link>
-                    <Link href="/diensten" className="btn-secondary" style={{ border: '2px solid #fff', color: '#fff', padding: '12px 26px', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold', display: 'inline-block', backgroundColor: 'transparent', transition: 'background 0.3s' }}>Bekijk onze diensten</Link>
-                </div>
+      <section className="hero" id="main">
+        <div className="shell">
+          <div className="hero-grid">
+            <div>
+              <span className="eyebrow">Social media agency · Venray</span>
+              <h1 className="headline">Social media hoeft niet <em>ingewikkeld</em> te zijn.</h1>
+              <p className="sub">Yomarra neemt het volledige proces uit handen - van strategie tot content en community. Jij blijft ondernemen. Wij zorgen voor de groei.</p>
+              <div className="hero-cta">
+                <Link href="/contact" className="btn btn-vol">Plan een gratis gesprek <FaArrowRight /></Link>
+                <Link href="/diensten" className="btn btn-lijn">Bekijk onze diensten</Link>
+              </div>
             </div>
-
-            {/* Bottom Wave to White */}
-            <div style={{position: 'absolute', bottom: '-1px', left: 0, width: '100%', zIndex: 1}}>
-                <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{display: 'block', width: '100%', height: '80px'}}>
-                    <path fill="#ffffff" d="M0,50 L1440,0 L1440,100 L0,100 Z"></path>
-                </svg>
+            <div className="hero-visual">
+              <img src="/hero-social-illustration.svg" alt="Yomarra social media illustratie" />
+              <div className="hero-badge"><b>★ 5/5</b><span>Altijd impact</span></div>
             </div>
-        </section>
+          </div>
 
-        {/* Brand Expertise / Emoticons Strip */}
-        <section style={{backgroundColor: '#fff', padding: '4rem 0 2rem 0'}}>
-            <div className="container">
-                <div style={{
-                    display: 'flex', 
-                    justifyContent: 'space-between', 
-                    alignItems: 'center', 
-                    flexWrap: 'wrap', 
-                    gap: '2rem',
-                    maxWidth: '800px',
-                    margin: '0 auto'
-                }}>
-                    {/* Emoticon 1: Megaphone / Promo */}
-                    <Link href="/promotie" className="emoticon-link">
-                        <div className="icon-box" style={{
-                            width: '100px', height: '100px', 
-                            backgroundColor: '#F2E6D8', 
-                            borderRadius: '24px', 
-                            display: 'flex', justifyContent: 'center', alignItems: 'center',
-                            color: '#8B4513', fontSize: '3rem',
-                            boxShadow: '0 8px 16px rgba(139, 69, 19, 0.1)',
-                            transition: 'all 0.3s ease'
-                        }}>
-                            <FaBullhorn />
-                        </div>
-                        <div>Promotie</div>
-                    </Link>
-
-                    {/* Emoticon 2: Target / Strategy */}
-                    <Link href="/strategie" className="emoticon-link">
-                        <div className="icon-box" style={{
-                            width: '100px', height: '100px', 
-                            backgroundColor: '#F2E6D8', 
-                            borderRadius: '24px', 
-                            display: 'flex', justifyContent: 'center', alignItems: 'center',
-                            color: '#8B4513', fontSize: '3rem',
-                            boxShadow: '0 8px 16px rgba(139, 69, 19, 0.1)',
-                            transition: 'all 0.3s ease'
-                        }}>
-                            <FaBullseye />
-                        </div>
-                        <div>Strategie</div>
-                    </Link>
-
-                    {/* Emoticon 3: Camera / Content */}
-                    <Link href="/content" className="emoticon-link">
-                        <div className="icon-box" style={{
-                            width: '100px', height: '100px', 
-                            backgroundColor: '#F2E6D8', 
-                            borderRadius: '24px', 
-                            display: 'flex', justifyContent: 'center', alignItems: 'center',
-                            color: '#8B4513', fontSize: '3rem',
-                            boxShadow: '0 8px 16px rgba(139, 69, 19, 0.1)',
-                            transition: 'all 0.3s ease'
-                        }}>
-                            <FaCamera />
-                        </div>
-                        <div>Content</div>
-                    </Link>
-                </div>
+          <div style={{ marginTop: '2rem' }}>
+            <div className="trust-grid">
+              <div className="trust-item"><b>&lt; 24u</b> reactie op elke aanvraag</div>
+              <div className="trust-item"><b>1</b> vast aanspreekpunt, geen tussenlaag</div>
+              <div className="trust-item"><b>Reels first</b> gebouwd voor het algoritme</div>
+              <div className="trust-item"><b>Maandelijks</b> rapportage &amp; bijsturing</div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        {/* Over Ons / Solutions Section */}
-        <section id="about" style={{backgroundColor: '#fff', padding: '6rem 0'}}>
-            <div className="container">
-                <div style={{textAlign: 'center', marginBottom: '4rem'}}>
-                    <h2 style={{fontFamily: 'var(--font-montserrat)', color: '#111', fontSize: '3rem', fontWeight: 'bold'}}>Wat we doen</h2>
+      <div className="marquee" aria-hidden="true">
+        <div className="marquee-track">
+          <span>Strategie</span><span className="punt">◆</span><span>Content creatie</span><span className="punt">◆</span><span>Reels &amp; TikTok</span><span className="punt">◆</span><span>Community management</span><span className="punt">◆</span><span>Branding</span><span className="punt">◆</span><span>Meetbare groei</span><span className="punt">◆</span>
+          <span>Strategie</span><span className="punt">◆</span><span>Content creatie</span><span className="punt">◆</span><span>Reels &amp; TikTok</span><span className="punt">◆</span><span>Community management</span><span className="punt">◆</span><span>Branding</span><span className="punt">◆</span><span>Meetbare groei</span><span className="punt">◆</span>
+        </div>
+      </div>
+
+      <section id="diensten" style={{ padding: '5rem 0' }}>
+        <div className="shell">
+          <div className="section-head">
+            <span className="eyebrow">Wat we doen</span>
+            <h2>Wat Yomarra <em>doet</em></h2>
+            <p>Wij nemen het volledige proces uit handen: van strategie tot creatie en publicatie. We helpen jouw merk groeien met doordachte content.</p>
+          </div>
+          <div className="service-grid">
+            {services.map((service) => (
+              <article key={service.title} className="service-card">
+                <div className="visual" style={{ background: service.accent }}>
+                  <service.icon aria-hidden="true" />
                 </div>
-
-                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem'}}>
-                    
-                    {/* Card 1 */}
-                    <div className="floating-card" style={{borderRadius: '24px', overflow: 'hidden', backgroundColor: '#fff', border: '1px solid #fff', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column', height: '100%'}}>
-                        <div style={{height: '180px', backgroundColor: '#FCD553', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                            <FaLaptop style={{fontSize: '5rem', color: '#fff'}} />
-                        </div>
-                        <div style={{padding: '2.5rem'}}>
-                            <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#111'}}>Wat Yomarra doet</h3>
-                            <p style={{color: '#555', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                Wij nemen het volledige proces uit handen: van strategie tot creatie en publicatie. We helpen jouw merk groeien met doordachte content.
-                            </p>
-                            <Link href="/over-ons" style={{color: '#111', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none'}}>
-                                Check it Out <FaArrowRight fontSize="0.8rem" />
-                            </Link>
-                        </div>
-                    </div>
-
-                    {/* Card 2 */}
-                    <div className="floating-card" style={{borderRadius: '24px', overflow: 'hidden', backgroundColor: '#fff', border: '1px solid #fff', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column', height: '100%'}}>
-                        <div style={{height: '180px', backgroundColor: '#8ea6ff', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                            <FaBullseye style={{fontSize: '5rem', color: '#fff'}} />
-                        </div>
-                        <div style={{padding: '2.5rem'}}>
-                            <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#111'}}>Mijn visie</h3>
-                            <p style={{color: '#555', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                Elk bedrijf moet zijn unieke verhaal laten voelen. Merken moeten dominant zichtbaar zijn voor de juiste doelgroep en impact maken.
-                            </p>
-                            <Link href="/over-ons" style={{color: '#111', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none'}}>
-                                Check it Out <FaArrowRight fontSize="0.8rem" />
-                            </Link>
-                        </div>
-                    </div>
-
-                    {/* Card 3 */}
-                    <div className="floating-card" style={{borderRadius: '24px', overflow: 'hidden', backgroundColor: '#fff', border: '1px solid #fff', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column', height: '100%'}}>
-                        <div style={{height: '180px', backgroundColor: '#ff9a76', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                            <FaComments style={{fontSize: '5rem', color: '#fff'}} />
-                        </div>
-                        <div style={{padding: '2.5rem'}}>
-                            <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#111'}}>Wat krijg je?</h3>
-                            <p style={{color: '#555', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                Persoonlijke aandacht, creatieve concepten die opvallen, en meetbare resultaten gericht op conversie en constante groei.
-                            </p>
-                            <Link href="/diensten" style={{color: '#111', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none'}}>
-                                Check it Out <FaArrowRight fontSize="0.8rem" />
-                            </Link>
-                        </div>
-                    </div>
-
+                <div className="inhoud">
+                  <span className="nr">— {service.number}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <Link className="link" href={service.href}>Check it out <FaArrowRight style={{ fontSize: '0.85rem' }} /></Link>
                 </div>
-            </div>
-        </section>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        {/* Pricing / Packages Section */}
-        <section id="pricing" style={{ backgroundColor: '#F3E7D9', padding: '6rem 0', position: 'relative' }}>
-            <div style={{ position: 'absolute', top: '-1px', left: 0, width: '100%', zIndex: 1 }}>
-                <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '80px', transform: 'scaleY(-1)' }}>
-                    <path fill="#ffffff" d="M0,50 L1440,0 L1440,100 L0,100 Z"></path>
-                </svg>
-            </div>
-
-            <div className="container" style={{ position: 'relative', zIndex: 2, marginTop: '2rem' }}>
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <p style={{ color: '#8F431C', letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.8rem', fontWeight: '700', marginBottom: '1rem' }}>
-                        Pakketten
-                    </p>
-                    <h2 style={{ fontFamily: 'var(--font-montserrat)', color: '#111', fontSize: 'clamp(2.3rem, 5vw, 3.5rem)', fontWeight: '800', marginBottom: '1rem' }}>
-                        Kies jouw pakket.
-                    </h2>
-                    <p style={{ color: '#555', maxWidth: '620px', margin: '0 auto 2rem', lineHeight: '1.8' }}>
-                        Transparante prijzen, maximale impact. Klik op een pakket voor extra details, precies zoals in de zip-versie.
-                    </p>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <a href="/yomarra-offerte-sectie.pdf" download style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', backgroundColor: '#1A1110', padding: '1rem 2rem', borderRadius: '999px', color: '#FDFAF6', textDecoration: 'none', transition: '0.3s', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 8px 20px rgba(0,0,0,0.15)' }}>
-                            <FaFilePdf style={{ fontSize: '1.8rem', color: '#C27A55' }} />
-                            <div style={{ textAlign: 'left' }}>
-                                <div style={{ fontWeight: 'bold', fontSize: '1.05rem', color: '#FDFAF6' }}>Download Offerte</div>
-                                <div style={{ fontSize: '0.85rem', color: 'rgba(253,250,246,0.65)', marginTop: '0.2rem' }}>Bekijk de uitgebreide pakket specificaties</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', maxWidth: '1100px', margin: '0 auto', alignItems: 'stretch' }}>
-                    {[
-                        {
-                            number: '01',
-                            title: 'START',
-                            price: '€250',
-                            priceLabel: 'eenmalig',
-                            period: 'Looptijd: 1 - 2 maanden',
-                            image: 'https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&w=1200&q=80',
-                            summary: 'De fundering van een serieus merk.',
-                            details: ['Branding analyse & positionering', 'Merkidentiteit & tone of voice', 'Contentstrategie & pilaren', 'Hooks, captions & templates'],
-                            href: '/contact?plan=start',
-                            cta: 'Aanvragen',
-                            accent: '#7A2E12',
-                            open: false,
-                        },
-                        {
-                            number: '02',
-                            title: 'GROEI',
-                            price: '€499',
-                            priceLabel: '/ maand',
-                            period: 'Looptijd: 3 of 6 maanden',
-                            image: 'https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80',
-                            summary: 'Bereik omzetten in klanten.',
-                            details: ['Reels & TikTok strategie', 'Actief community management', 'DM -> gesprek -> deal systeem', 'Maandelijkse rapportage'],
-                            href: '/contact?plan=groei',
-                            cta: 'Start nu',
-                            accent: '#8F431C',
-                            open: true,
-                        },
-                        {
-                            number: '03',
-                            title: 'ALL-IN',
-                            price: '€1.000',
-                            priceLabel: '/ maand',
-                            period: 'Minimaal 6 maanden',
-                            image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
-                            summary: 'Volledige overname van social media.',
-                            details: ['Alles van START + GROEI', 'Volledige contentplanning', 'Lead kwalificatie & opvolging', 'Prioriteit support & check-ins'],
-                            href: '/contact?plan=all-in',
-                            cta: 'Aanvragen',
-                            accent: '#7A2E12',
-                            open: false,
-                        },
-                    ].map((pkg) => (
-                        <details key={pkg.title} open={pkg.open} style={{ backgroundColor: '#fff9f4', border: '1px solid rgba(122,46,18,0.12)', borderTop: `4px solid ${pkg.accent}`, borderRadius: '20px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-                            <summary style={{ listStyle: 'none', cursor: 'pointer', padding: '1.5rem 1.5rem 1rem', outline: 'none' }}>
-                                <div style={{ width: '100%', height: '180px', position: 'relative', marginBottom: '1.25rem', borderRadius: '16px', overflow: 'hidden' }}>
-                                    <img src={pkg.image} alt={pkg.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                                </div>
-                                <div style={{ fontSize: '0.68rem', letterSpacing: '3px', color: '#C27A55', marginBottom: '0.5rem', textTransform: 'uppercase' }}>{pkg.number}</div>
-                                <div style={{ fontFamily: 'var(--font-montserrat)', fontSize: '2.2rem', color: '#1A1110', lineHeight: 1, marginBottom: '0.4rem', fontWeight: 'bold' }}>{pkg.title}</div>
-                                <div style={{ fontSize: '0.85rem', color: '#8C7B6E', fontStyle: 'italic', marginBottom: '1rem' }}>{pkg.summary}</div>
-                                <div style={{ marginBottom: '0.3rem' }}>
-                                    <span style={{ fontFamily: 'var(--font-montserrat)', fontSize: '2.1rem', color: '#7A2E12', lineHeight: 1, fontWeight: 'bold' }}>{pkg.price}</span>
-                                    <span style={{ fontSize: '0.8rem', color: '#8C7B6E', marginLeft: '0.35rem' }}>{pkg.priceLabel}</span>
-                                </div>
-                                <div style={{ fontSize: '0.75rem', color: '#8C7B6E', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1rem' }}>{pkg.period}</div>
-                                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: '#8F431C', fontWeight: 700 }}>
-                                    Bekijk details <FaArrowRight fontSize="0.85rem" />
-                                </span>
-                            </summary>
-                            <div style={{ padding: '0 1.5rem 1.5rem', borderTop: '1px solid rgba(122,46,18,0.1)' }}>
-                                <ul style={{ listStyle: 'none', padding: 0, margin: '1rem 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                                    {pkg.details.map((item) => (
-                                        <li key={item} style={{ fontSize: '0.95rem', color: '#5a4035', display: 'flex', gap: '0.6rem', lineHeight: 1.5 }}>
-                                            <span style={{ color: '#7A2E12', fontWeight: 700 }}>✓</span> {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <Link href={pkg.href} style={{ display: 'block', textAlign: 'center', padding: '0.95rem', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', borderRadius: '999px', border: `1.5px solid ${pkg.accent}`, color: pkg.accent, background: 'transparent' }}>
-                                    {pkg.cta}
-                                </Link>
-                            </div>
-                        </details>
+      <section id="pakketten" style={{ padding: '4rem 0', background: '#F3E7D9' }}>
+        <div className="shell">
+          <div className="section-head">
+            <span className="eyebrow">Kies jouw pakket</span>
+            <h2>Kies jouw <em>pakket</em></h2>
+            <p>Transparante prijzen, maximale impact. Alle prijzen zijn exclusief btw.</p>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+            <a href="/yomarra-offerte-sectie.pdf" download className="btn btn-vol">Download Offerte <FaArrowRight /></a>
+          </div>
+          <div className="package-grid">
+            {packages.map((pkg) => (
+              <details key={pkg.title} className={`package ${pkg.popular ? 'popular' : ''}`} open={pkg.popular}>
+                {pkg.popular && <span className="popular-badge">Meest gekozen</span>}
+                <summary>
+                  <span className="nummer">— {pkg.number}</span>
+                  <h3>{pkg.title}</h3>
+                  <p style={{ fontStyle: 'italic', marginBottom: '1rem', color: pkg.popular ? '#F6EEE2' : '#8C7B6E' }}>{pkg.summary}</p>
+                  <div className="price">{pkg.price} <small>{pkg.priceMeta}</small></div>
+                  <div className="period">{pkg.period}</div>
+                  <span className="link" style={{ color: pkg.popular ? '#F7EFE4' : '#8F431C' }}>Bekijk details <FaPlus style={{ fontSize: '0.85rem' }} /></span>
+                </summary>
+                <div className="package-summary">
+                  <ul>
+                    {pkg.details.map((item) => (
+                      <li key={item}><FaCheckCircle /> <span>{item}</span></li>
                     ))}
+                  </ul>
+                  <Link href={pkg.href} className={`btn ${pkg.popular ? 'btn-wit' : 'btn-lijn'}`} style={{ width: '100%', justifyContent: 'center' }}>{pkg.popular ? 'START NU →' : 'AANVRAGEN'}</Link>
                 </div>
+              </details>
+            ))}
+          </div>
+          <p style={{ textAlign: 'center', marginTop: '2rem', color: '#5B544E' }}>Twijfel je welk pakket past? <Link href="/contact" style={{ color: '#8F431C', fontWeight: 700 }}>Plan een gratis gesprek</Link> - dan kijken we samen wat logisch is voor jouw fase.</p>
+        </div>
+      </section>
+
+      <section className="quote-band">
+        <div className="shell">
+          <blockquote>"Yomarra helpt jouw bedrijf groeien met pakkende content, een duidelijke <em>strategie</em> en meetbare impact."</blockquote>
+          <cite>Marvin Agyei - Oprichter Yomarra</cite>
+        </div>
+      </section>
+
+      <section className="cta-band">
+        <div className="shell">
+          <div className="box">
+            <h2>Neem contact op of bekijk <em>onze diensten.</em></h2>
+            <p>Plan een gratis gesprek en ontdek wat Yomarra voor jouw bedrijf kan betekenen.</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem' }}>
+              <Link href="/contact" className="btn btn-wit">Neem contact op <FaArrowRight /></Link>
+              <Link href="/diensten" className="btn btn-lijn" style={{ borderColor: 'rgba(246,238,226,.3)', color: '#F6EEE2' }}>Bekijk onze diensten</Link>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
-
-
-
-

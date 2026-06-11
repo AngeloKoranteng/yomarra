@@ -9,37 +9,37 @@ export default function ContactForm() {
         e.preventDefault();
         setStatus('Verzenden...');
 
-        try {
-            const formData = new FormData(e.target);
-            formData.append("access_key", "c031c2da-078a-40a2-bbe4-e0e64f7eaefe"); 
+        const formData = new FormData(e.target);
+        const name = String(formData.get('name') || '');
+        const email = String(formData.get('email') || '');
+        const phone = String(formData.get('phone') || '');
+        const company = String(formData.get('company') || '');
+        const packageName = String(formData.get('package') || '');
+        const message = String(formData.get('message') || '');
 
-            const response = await fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                body: formData
-            });
+        const subject = encodeURIComponent(`Contactaanvraag van ${name || 'websitebezoeker'}`);
+        const body = encodeURIComponent([
+            `Naam: ${name}`,
+            `E-mail: ${email}`,
+            `Telefoonnummer: ${phone}`,
+            `Bedrijfsnaam: ${company}`,
+            `Pakket: ${packageName}`,
+            '',
+            message,
+        ].join('\n'));
 
-            const data = await response.json();
-
-            if (data.success) {
-                setStatus('success');
-                e.target.reset(); // Maak formulier leeg
-            } else {
-                console.log("Error from Web3Forms:", data);
-                setStatus('error');
-            }
-        } catch (error) {
-            console.error("Netwerk fout:", error);
-            setStatus('error');
-        }
+        window.location.href = `mailto:infoyomarra@gmail.com?subject=${subject}&body=${body}`;
+        setStatus('success');
+        e.target.reset();
     };
 
     if (status === 'success') {
         return (
             <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
-                <div style={{ fontSize: '4rem', color: '#4CAF50', marginBottom: '1rem' }}>?</div>
-                <h3 style={{ fontSize: '1.8rem', fontFamily: 'var(--font-montserrat)', color: '#111', marginBottom: '1rem' }}>Bericht verzonden!</h3>
+                <div style={{ fontSize: '4rem', color: '#4CAF50', marginBottom: '1rem' }}>✓</div>
+                <h3 style={{ fontSize: '1.8rem', fontFamily: 'var(--font-montserrat)', color: '#111', marginBottom: '1rem' }}>Bericht ontvangen</h3>
                 <p style={{ fontSize: '1.1rem', color: '#555', lineHeight: '1.6' }}>
-                    "Bedankt! Ik neem binnen 24 uur contact met je op. � Marvin, Yomarra"
+                    Bedankt! Je bericht is verstuurd. We hebben je aanvraag goed ontvangen en reageren binnen 24 uur. Hou je inbox in de gaten, check voor de zekerheid ook je spamfolder.
                 </p>
                 <button onClick={() => setStatus('')} style={{ 
                     marginTop: '2rem', 
@@ -107,12 +107,6 @@ export default function ContactForm() {
                     padding: '1rem', borderRadius: '12px', border: '1px solid #ddd', backgroundColor: '#fafafa', fontSize: '1rem', fontFamily: 'inherit', resize: 'vertical'
                 }}></textarea>
             </div>
-
-            {status === 'error' && (
-                <div style={{ color: '#d32f2f', backgroundColor: '#ffebee', padding: '1rem', borderRadius: '8px', fontSize: '0.9rem' }}>
-                    Er is helaas iets misgegaan bij het verzenden. Probeer het later nog eens of stuur ons direct een e-mail.
-                </div>
-            )}
 
             <button type="submit" disabled={status === 'Verzenden...'} style={{
                 marginTop: '1rem',
